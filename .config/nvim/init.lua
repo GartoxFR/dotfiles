@@ -43,3 +43,4 @@ vim.keymap.set({ "i", "s" }, "<C-h>", function()
     end
 end)
 
+require("keymap.harpoon")

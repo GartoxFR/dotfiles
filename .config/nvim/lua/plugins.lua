@@ -22,11 +22,16 @@ return require('packer').startup(function()
     use 'cdelledonne/vim-cmake'
     use 'puremourning/vimspector'
     use 'zefei/vim-colortuner'
+
     use 'nvim-treesitter/nvim-treesitter'
+    use 'nvim-treesitter/nvim-treesitter-context'
 
     use 'tpope/vim-surround'
     use 'tpope/vim-repeat'
     use 'numToStr/Comment.nvim'
 
     use 'onsails/lspkind.nvim'
+
+    use 'nvim-lua/plenary.nvim'
+    use 'ThePrimeagen/harpoon'
 end)
