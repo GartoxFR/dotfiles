@@ -28,6 +28,10 @@ local on_attach = function(client, bufnr)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', ',qf', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', ',f', '<cmd>lua vim.lsp.buf.format { async = true }<CR>', opts)
+
+  vim.api.nvim_create_autocmd({"BufWritePre"}, {
+      callback = function() vim.lsp.buf.formatting_sync(nil, 10000) end
+  })
 end
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
@@ -72,6 +76,9 @@ require('lspconfig').rust_analyzer.setup {
                 },
                 procMacro = {
                     enable = true
+                },
+                checkOnSave = {
+                    command = "clippy"
                 },
             }
         }

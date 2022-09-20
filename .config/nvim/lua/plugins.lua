@@ -34,4 +34,6 @@ return require('packer').startup(function()
 
     use 'nvim-lua/plenary.nvim'
     use 'ThePrimeagen/harpoon'
+
+    use 'maxbrunsfeld/vim-yankstack'
 end)
