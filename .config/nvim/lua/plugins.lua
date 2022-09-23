@@ -20,7 +20,6 @@ return require('packer').startup(function()
     }
     use 'windwp/nvim-autopairs'
     use 'cdelledonne/vim-cmake'
-    use 'puremourning/vimspector'
     use 'zefei/vim-colortuner'
 
     use 'nvim-treesitter/nvim-treesitter'

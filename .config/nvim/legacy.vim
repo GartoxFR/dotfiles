@@ -28,8 +28,6 @@ let g:cmake_link_compile_commands = 1
 nnoremap <leader>cg :CMakeGenerate<CR>
 nnoremap <leader>cb :CMakeBuild<CR>
 
-let g:vimspector_enable_mappings = 'HUMAN'
-
 " C-p: FZF find files
 nnoremap <silent> <C-p> :Files<CR>
 
