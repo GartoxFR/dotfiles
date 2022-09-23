@@ -20,6 +20,9 @@ set termguicolors
 let g:gruvbox_contrast_dark="hard"
 colorscheme gruvbox
 
+" Transparent background
+hi Normal guibg=NONE ctermbg=NONE
+
 let g:cmake_link_compile_commands = 1
 
 nnoremap <leader>cg :CMakeGenerate<CR>

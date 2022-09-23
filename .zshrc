@@ -80,6 +80,7 @@ source $ZSH/oh-my-zsh.sh
 
 # Add .NET Core SDK tools
 export PATH="$PATH:/home/ewan/.dotnet/tools"
+export PATH="$PATH:/home/ewan/dotfiles/bin"
 
 export BAT_THEME="gruvbox-dark"
 
@@ -109,3 +110,4 @@ prompt_context() {}
 alias o="xdg-open"
 
 alias e="/home/ewan/scripts/open_or_split.sh global"
+

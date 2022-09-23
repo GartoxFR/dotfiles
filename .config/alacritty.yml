@@ -5,8 +5,8 @@ window:
   class:
     instance: Alacritty
     general: Alacritty
-  opacity: 1.0
-  startup_mode: Fullscreen
+  opacity: 0.9
+  # startup_mode: Fullscreen
 
 font:
   normal:
@@ -26,13 +26,10 @@ env:
   TERM: xterm-256color
 
 shell:
-  program: /bin/tmux
-  args:
-    - new-session
-    - -A
-    - -D
-    - -s
-    - main
+  program: /usr/bin/tmux
+
+key_bindings:
+  - { key: F, mods: Control, command: {program: "bash", args: ["~/dotfiles/scripts/tmux-sessionizer.sh"]}}
 
 # The definition of color schemes.
 schemes:
@@ -171,3 +168,4 @@ schemes:
 
 # Apply the color scheme.
 colors: *gruvbox_material_hard_dark
+
