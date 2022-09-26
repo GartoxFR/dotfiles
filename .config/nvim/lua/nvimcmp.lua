@@ -31,6 +31,7 @@ cmp.setup({
         -- { name = 'snippy' }, -- For snippy users.
 
         { name = 'buffer' },
+        { name = 'path' },
     },
     formatting = {
         format = lspkind.cmp_format {
@@ -40,6 +41,7 @@ cmp.setup({
                 nvim_lsp = "[LSP]",
                 nvim_lua = "[api]",
                 luasnip = "[snip]",
+                path = "[path]"
             }
         },
         

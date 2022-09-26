@@ -12,12 +12,17 @@ return require('packer').startup(function()
     use 'hrsh7th/cmp-cmdline'
     use 'hrsh7th/nvim-cmp'
     use 'hrsh7th/cmp-nvim-lua'
+    use 'mfussenegger/nvim-jdtls'
+
     use 'L3MON4D3/LuaSnip'
     use 'saadparwaiz1/cmp_luasnip'
+
     use {
         'nvim-lualine/lualine.nvim',
         requires = { 'kyazdani42/nvim-web-devicons', opt = true }
     }
+    use 'arkav/lualine-lsp-progress'
+
     use 'windwp/nvim-autopairs'
     use 'cdelledonne/vim-cmake'
     use 'zefei/vim-colortuner'

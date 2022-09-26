@@ -6,7 +6,14 @@ vim.cmd([[
     so ~/.config/nvim/legacy.vim
 ]])
 
-require('lualine').setup()
+require('lualine').setup({
+    sections = {
+        lualine_c = {
+            'filename',
+            'lsp_progress'
+        }
+    }
+})
 require('nvim-autopairs').setup {}
 
 require('nvimcmp')
@@ -44,3 +51,4 @@ vim.keymap.set({ "i", "s" }, "<C-h>", function()
 end)
 
 require("keymap.harpoon")
+require("build")

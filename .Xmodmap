@@ -1,0 +1,16 @@
+clear Lock
+
+keysym Caps_Lock = Mode_switch
+keycode 66 = Mode_switch
+clear mod4
+
+keycode  38 = q Q 1 1 at Greek_OMEGA at
+keycode  39 = s S 2 2 ssharp U1E9E ssharp
+keycode  40 = d D 3 3 eth ETH eth
+keycode  41 = f F 4 4 dstroke ordfeminine dstroke
+keycode  42 = g G 5 5 eng ENG eng
+keycode  43 = h H 6 6 hstroke Hstroke hstroke
+keycode  44 = j J 7 7 dead_hook dead_horn dead_hook
+keycode  45 = k K 8 8 kra ampersand kra
+keycode  46 = l L 9 9 lstroke Lstroke lstroke
+keycode  47 = m M 0 0 mu masculine mu

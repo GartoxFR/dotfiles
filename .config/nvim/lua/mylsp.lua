@@ -94,7 +94,6 @@ require('lspconfig').clangd.setup{
     "--clang-tidy",
     "--suggest-missing-includes",
     "--all-scopes-completion",
-    "--pretty",
     "-j=4",
     "--inlay-hints",
     "--header-insertion-decorators",
