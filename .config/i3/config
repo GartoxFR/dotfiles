@@ -228,7 +228,7 @@ default_floating_border pixel 1
 # Startup 
 # Custom keymap
 exec_always --no-startup-id xmodmap ~/.Xmodmap
-exec_always --no-startup-id xcape -e 'Mode_switch=Escape'
+exec_always --no-startup-id xcape -e 'Mode_switch=Escape' -t 300
 
 # numlock by default
 exec --no-startup-id numlockx
