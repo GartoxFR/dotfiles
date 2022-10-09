@@ -40,4 +40,12 @@ return require('packer').startup(function()
     use 'ThePrimeagen/harpoon'
 
     use 'maxbrunsfeld/vim-yankstack'
+
+    -- use 'akinsho/git-conflict.nvim'
+    use({
+        "iamcco/markdown-preview.nvim",
+        run = function() vim.fn["mkdp#util#install"]() end,
+    })
+
+    use 'MortenStabenau/matlab-vim'
 end)
