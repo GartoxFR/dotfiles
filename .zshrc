@@ -83,6 +83,8 @@ export PATH="$PATH:/home/ewan/.dotnet/tools"
 export PATH="$PATH:/home/ewan/dotfiles/bin"
 
 export BAT_THEME="gruvbox-dark"
+export PAGER="less"
+export EDITOR="nvim"
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
