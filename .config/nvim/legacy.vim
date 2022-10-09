@@ -95,3 +95,7 @@ endfunction
 let g:mkdp_browserfunc = 'OpenMarkdownPreview'
 
 let g:matlab_panel_size = 50
+
+nnoremap <leader>ga <Plug>(GitGutterStageHunk)
+nnoremap <leader>gu <Plug>(GitGutterUndoHunk)
+nnoremap <leader>gs :Magit<CR>

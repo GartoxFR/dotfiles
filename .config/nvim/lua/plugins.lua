@@ -42,6 +42,11 @@ return require('packer').startup(function()
     use 'maxbrunsfeld/vim-yankstack'
 
     -- use 'akinsho/git-conflict.nvim'
+    
+    use 'jreybert/vimagit'
+    use 'tpope/vim-fugitive'
+    use 'airblade/vim-gitgutter'
+
     use({
         "iamcco/markdown-preview.nvim",
         run = function() vim.fn["mkdp#util#install"]() end,
