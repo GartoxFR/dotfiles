@@ -3,7 +3,7 @@
 if [[ $# -eq 1 ]]; then
     selected=$1
 else
-    selected=$(find ~/dev ~/dev/rust ~/ -mindepth 1 -maxdepth 1 -type d | fzf)
+    selected=$(find ~/dev ~/dev/rust ~/ ~/dev/ekalia ~/dev/matlab/ ~/Documents/ -mindepth 1 -maxdepth 1 -type d | fzf)
 fi
 
 if [[ -z $selected ]]; then
@@ -25,6 +25,14 @@ fi
 
 if [[ -z $TMUX ]]; then
     tmux a
+fi
+
+SESSION_PATH=$(tmux display-message -p "#{session_path}")
+SESSION_NAME=$(tmux display-message -p "#S")
+SESSION_PATH_BASENAME=$(basename "$SESSION_PATH" | tr . _)
+
+if [ $SESSION_PATH_BASENAME = $SESSION_NAME ]; then
+    echo $SESSION_PATH > /home/ewan/.last_session
 fi
 
 tmux switch-client -t $selected_name

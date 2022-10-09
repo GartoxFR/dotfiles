@@ -1,4 +1,6 @@
 bind p new-window ~/dotfiles/bin/tmux-sessionizer
+bind m new-window ~/dotfiles/bin/tmux-program-session spotify spt
+bind o new-window sh -c '~/dotfiles/bin/tmux-sessionizer $(cat /home/ewan/.last_session)'
 bind g run-shell "/home/ewan/.local/share/nvim/site/pack/packer/start/harpoon/scripts/tmux/switch-back-to-nvim" # : << EOF
 # https://github.com/gpakosz/.tmux
 # (‑●‑●)> dual licensed under the WTFPL v2 license and the MIT license,

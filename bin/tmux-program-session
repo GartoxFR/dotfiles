@@ -1,0 +1,23 @@
+#! /usr/bin/env bash
+
+if [ $# < 2 ]; then
+    exit 1;
+fi
+
+session_name=$1
+shift
+
+if ! tmux has-session -t=$session_name 2> /dev/null; then
+    echo "$@"
+    tmux new-session -ds $session_name sh -c "$@"
+fi
+
+SESSION_PATH=$(tmux display-message -p "#{session_path}")
+SESSION_NAME=$(tmux display-message -p "#S")
+SESSION_PATH_BASENAME=$(basename "$SESSION_PATH" | tr . _)
+
+if [ $SESSION_PATH_BASENAME = $SESSION_NAME ]; then
+    echo $SESSION_PATH > /home/ewan/.last_session
+fi
+
+tmux switch-client -t $session_name
