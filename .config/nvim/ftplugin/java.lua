@@ -1,9 +1,7 @@
 local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
 
 local opts = { noremap=true, silent=true }
--- Enable completion triggered by <c-x><c-o>
 local bufnr = vim.api.nvim_get_current_buf()
-print(bufnr)
 vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
 -- Mappings.
@@ -45,6 +43,7 @@ local config = {
         '-Declipse.product=org.eclipse.jdt.ls.core.product',
         '-Dlog.protocol=true',
         '-Dlog.level=ALL',
+        '-noverify',
         '-Xms1g',
         '--add-modules=ALL-SYSTEM',
         '--add-opens', 'java.base/java.util=ALL-UNNAMED',

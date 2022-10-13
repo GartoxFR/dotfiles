@@ -99,3 +99,7 @@ let g:matlab_panel_size = 50
 nnoremap <leader>ga <Plug>(GitGutterStageHunk)
 nnoremap <leader>gu <Plug>(GitGutterUndoHunk)
 nnoremap <leader>gs :Magit<CR>
+
+set noswapfile
+
+nnoremap <leader>e :Ex<CR>

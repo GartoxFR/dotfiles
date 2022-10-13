@@ -52,6 +52,9 @@ bindsym $mod+Return exec alacritty
 # kill focused window
 bindsym $mod+Shift+A kill
 
+# Screen shot
+bindsym $mod+Shift+S exec maim -s > /home/ewan/Pictures/screenshots/$(date +%F-%T).png
+
 # start dmenu (a program launcher)
 bindsym $mod+p exec --no-startup-id rofi -show drun -show-icons
 # A more modern dmenu replacement is rofi:
@@ -224,6 +227,9 @@ smart_borders no_gaps
 smart_gaps on
 default_border pixel 2
 default_floating_border pixel 1
+title_align center
+
+for_window [class=".*"] border pixel 2
 
 # Startup 
 # Custom keymap

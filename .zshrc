@@ -111,5 +111,5 @@ prompt_context() {}
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias o="xdg-open"
 
-alias e="/home/ewan/scripts/open_or_split.sh global"
-
+alias vim=nvim
+alias vi=nvim

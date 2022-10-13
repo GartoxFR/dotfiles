@@ -13,3 +13,5 @@ end
 
 nnoremap("<F5>", build, {silent = true})
 
+nnoremap("<leader>yf", function() io.popen("cat " .. vim.fn.expand("%") .. " | xclip -sel clip") end, {silent = true})
+
