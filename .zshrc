@@ -80,7 +80,7 @@ source $ZSH/oh-my-zsh.sh
 
 # Add .NET Core SDK tools
 export PATH="$PATH:/home/ewan/.dotnet/tools"
-export PATH="$PATH:/home/ewan/dotfiles/bin"
+export PATH="$PATH:$HOME/dotfiles/bin"
 
 export BAT_THEME="gruvbox-dark"
 export PAGER="less"
