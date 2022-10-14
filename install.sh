@@ -8,11 +8,11 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 
 sudo pacman -Syu --needed xorg lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings i3-gaps i3lock polybar picom rofi
 
-sudo pacman -Syu --needed fzf ripgrep bat bat-extras tmux neovim firefox
+sudo pacman -Syu --needed alacritty fzf ripgrep bat bat-extras tmux neovim firefox
 
 # Install yay
-pushd /tmp
 sudo pacman -S --needed git base-devel
+pushd /tmp
 git clone https://aur.archlinux.org/yay.git
 cd yay
 makepkg -si
