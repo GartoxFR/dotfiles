@@ -1,5 +1,5 @@
 #! /usr/bin/env bash
-sudo pacman -Syu --needed git zsh
+sudo pacman -Syu --needed git zsh openssh
 
 #Ohmyzsh installation
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
