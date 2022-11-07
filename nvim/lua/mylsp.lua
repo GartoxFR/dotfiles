@@ -47,7 +47,7 @@ for _, lsp in pairs(servers) do
   }
 end
 
-local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
 require('lspconfig').zls.setup {
   on_attach = on_attach,
   capabilities = capabilities
@@ -58,10 +58,16 @@ require('lspconfig').pyright.setup {
   capabilities = capabilities
 }
 
-require('lspconfig').rust_analyzer.setup {
-    on_attach = on_attach,
-    capabilities = capabilities,
-    settings = {
+local rt = require('rust-tools')
+rt.setup({
+    server = {
+        on_attach = function(client, bufnr)
+            on_attach(client, bufnr)
+            vim.keymap.set("n", "K", rt.hover_actions.hover_actions, {buffer = bufnr})
+            vim.keymap.set("n", "<leader>qf", rt.code_action_group.code_action_group, {buffer = bufnr})
+        end,
+        capabilities = capabilities,
+        settings = {
             ["rust-analyzer"] = {
                 imports = {
                     granularity = {
@@ -82,7 +88,9 @@ require('lspconfig').rust_analyzer.setup {
                 },
             }
         }
-}
+    }
+})
+
 
 require('lspconfig').clangd.setup{
   on_attach = on_attach,

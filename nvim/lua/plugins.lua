@@ -55,4 +55,6 @@ return require('packer').startup(function()
     use 'MortenStabenau/matlab-vim'
 
     use 'tikhomirov/vim-glsl'
+
+    use 'simrat39/rust-tools.nvim'
 end)
