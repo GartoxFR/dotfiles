@@ -53,4 +53,6 @@ return require('packer').startup(function()
     })
 
     use 'MortenStabenau/matlab-vim'
+
+    use 'tikhomirov/vim-glsl'
 end)

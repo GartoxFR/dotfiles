@@ -230,6 +230,8 @@ default_floating_border pixel 1
 title_align center
 
 for_window [class=".*"] border pixel 2
+for_window [class="MATLAB R2022b - academic us"] resize set 800 800
+for_window [class="MATLAB R2022b - academic us"] floating enable
 
 # Startup 
 # Custom keymap
