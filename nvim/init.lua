@@ -24,6 +24,9 @@ require('mylsp')
 require('nvim-treesitter.configs').setup {
     highlight = {
         enable = true,
+        disable = function(lang, bufnr)
+            return false
+        end
     },
 	ensure_installed = { "c", "lua", "rust" },
 
@@ -49,6 +52,18 @@ vim.keymap.set({ "i", "s" }, "<C-h>", function()
         ls.jump(-1);
     end
 end)
+
+require("neo-tree").setup({
+    event_handlers = {
+        {
+            event = "file_opened",
+            handler = function()
+                print("test")
+                require("neo-tree").close_all()
+            end
+        }
+    }
+})
 
 require("keymap.harpoon")
 require("build")

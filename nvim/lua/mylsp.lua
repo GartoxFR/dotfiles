@@ -30,7 +30,7 @@ local on_attach = function(client, bufnr)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', ',f', '<cmd>lua vim.lsp.buf.format { async = true }<CR>', opts)
 
   vim.api.nvim_create_autocmd({"BufWritePre"}, {
-      callback = function() vim.lsp.buf.formatting_sync(nil, 10000) end
+      callback = function() vim.lsp.buf.format({async = false}) end
   })
 end
 
@@ -57,6 +57,11 @@ require('lspconfig').pyright.setup {
   on_attach = on_attach,
   capabilities = capabilities
 }
+
+-- require('lspconfig').sumneko_lua.setup {
+--     on_attach = on_attach,
+--     capabilities = capabilities
+-- }
 
 local rt = require('rust-tools')
 rt.setup({
@@ -91,23 +96,12 @@ rt.setup({
     }
 })
 
-
-require('lspconfig').clangd.setup{
-  on_attach = on_attach,
-  capabilities = capabilities;
-  cmd = {
-    "clangd",
-    "--background-index",
-    "--pch-storage=memory",
-    "--clang-tidy",
-    "--suggest-missing-includes",
-    "--all-scopes-completion",
-    "-j=4",
-    "--inlay-hints",
-    "--header-insertion-decorators",
-  },
-  filetypes = {"c", "cpp", "objc", "objcpp"},
-  -- root_dir = utils.root_pattern("compile_commands.json", "compile_flags.txt", ".git")
-  init_option = { fallbackFlags = {  "-std=c++2a"  } }
+require("clangd_extensions").setup {
+    server = {
+        capabilities = capabilities,
+        on_attach = function(client, bufnr)
+            on_attach(client, bufnr)
+            vim.keymap.set("n", "gs", '<cmd>ClangdSwitchSourceHeader<cr>', { buffer = bufnr, silent = true })
+        end,
+    }
 }
-

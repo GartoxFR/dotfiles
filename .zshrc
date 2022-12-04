@@ -114,3 +114,4 @@ alias o="xdg-open"
 alias vim=nvim
 alias vi=nvim
 
+eval $(beet completion)

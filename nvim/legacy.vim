@@ -3,6 +3,9 @@ set relativenumber
 syntax on
 set visualbell
 set ruler
+set nowrap
+set splitright
+set splitbelow
 
 set so=10
 
@@ -102,4 +105,5 @@ nnoremap <leader>gs :Magit<CR>
 
 set noswapfile
 
-nnoremap <leader>e :Ex<CR>
+nnoremap <leader>e :Neotree toggle<CR>
+let g:table_mode_corner='|'

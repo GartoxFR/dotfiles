@@ -14,6 +14,8 @@ return require('packer').startup(function()
     use 'hrsh7th/cmp-nvim-lua'
     use 'mfussenegger/nvim-jdtls'
 
+    use 'p00f/clangd_extensions.nvim'
+
     use 'L3MON4D3/LuaSnip'
     use 'saadparwaiz1/cmp_luasnip'
 
@@ -56,5 +58,21 @@ return require('packer').startup(function()
 
     use 'tikhomirov/vim-glsl'
 
+     -- Unless you are still migrating, remove the deprecated commands from v1.x
+    vim.cmd([[ let g:neo_tree_remove_legacy_commands = 1 ]])
+
+    use {
+        "nvim-neo-tree/neo-tree.nvim",
+        branch = "v2.x",
+        requires = { 
+            "nvim-lua/plenary.nvim",
+            "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+            "MunifTanjim/nui.nvim",
+        }
+    }
+
     use 'simrat39/rust-tools.nvim'
+
+    use 'dhruvasagar/vim-table-mode'
+
 end)
