@@ -114,4 +114,6 @@ alias o="xdg-open"
 alias vim=nvim
 alias vi=nvim
 
-eval $(beet completion)
+alias gla="git log --all --graph --decorate --oneline"
+
+export PATH="/home/ewan/go/bin:$PATH"

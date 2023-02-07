@@ -33,7 +33,7 @@ local on_attach = function(client, bufnr)
       callback = function() vim.lsp.buf.format({async = false}) end
   })
 end
-
+local configs = require'lspconfig.configs'
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
 local servers = { 'clangd', 'zls', 'pyright', 'rust_analyzer' }
@@ -48,6 +48,8 @@ for _, lsp in pairs(servers) do
 end
 
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+
 require('lspconfig').zls.setup {
   on_attach = on_attach,
   capabilities = capabilities
@@ -105,3 +107,35 @@ require("clangd_extensions").setup {
         end,
     }
 }
+if not configs.ls_emmet then
+  configs.ls_emmet = {
+    default_config = {
+      cmd = { 'ls_emmet', '--stdio' };
+      filetypes = {
+        'html',
+        'css',
+        'scss',
+        'javascriptreact',
+        'typescriptreact',
+        'haml',
+        'xml',
+        'xsl',
+        'pug',
+        'slim',
+        'sass',
+        'stylus',
+        'less',
+        'sss',
+        'hbs',
+        'handlebars',
+        'markdown'
+      };
+      root_dir = function(fname)
+        return vim.loop.cwd()
+      end;
+      settings = {};
+    };
+  }
+end
+
+require('lspconfig').ls_emmet.setup { capabilities = capabilities }

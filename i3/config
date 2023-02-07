@@ -230,8 +230,8 @@ default_floating_border pixel 1
 title_align center
 
 for_window [class=".*"] border pixel 2
-for_window [class="MATLAB R2022b - academic us"] resize set 800 800
-for_window [class="MATLAB R2022b - academic us"] floating enable
+# for_window [class="MATLAB R2022b - academic us"] resize set 1280 720
+# for_window [class="MATLAB R2022b - academic us"] floating enable
 
 # Startup 
 # Custom keymap
@@ -241,9 +241,10 @@ exec_always --no-startup-id xcape -e 'Mode_switch=Escape' -t 300
 # numlock by default
 exec --no-startup-id numlockx
 # Change monitors based on plugged in devices
-exec_always --no-startup-id autorandr --change
+# exec_always --no-startup-id autorandr --change
+exec umonitor --listen --quiet
 # Transparency
-exec_always --no-startup-id picom -b --experimental-backends
+exec_always --no-startup-id picom 
 # Polybar 
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 # Wallpaper
