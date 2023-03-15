@@ -11,7 +11,26 @@ function build()
     
 end
 
+function escape(args)
+	local ret = {}
+	for _,a in pairs(args) do
+		s = tostring(a)
+		if s:match("[^A-Za-z0-9_/:=-]") then
+			s = '"' .. s:gsub("'", "\\'"):gsub('"', '\\"') .. '"'
+		end
+		table.insert(ret,s)
+	end
+	return table.concat(ret, " ")
+end
+
+function xpath() 
+    io.popen("tmux neww sh -c '/home/ewan/dotfiles/bin/xpath.sh " ..  escape({vim.api.nvim_get_current_line()}) .. "; read -s -n 1 -p \"Press any key to continue...\"'")
+    
+end
+
 nnoremap("<F5>", build, {silent = true})
 
 nnoremap("<leader>yf", function() io.popen("cat " .. vim.fn.expand("%") .. " | xclip -sel clip") end, {silent = true})
+
+nnoremap("<leader>xp", xpath, {silent = true})
 

@@ -20,3 +20,7 @@ ln -sf $DP/tmux/.tmux.conf.local $HOME
 
 ln -sf $DP/.zshrc $HOME
 ln -sf $DP/.Xmodmap $HOME
+
+ln -sf $DP/fish/config.fish $HOME/.config/fish/config.fish
+ln -sf $DP/starship.toml $HOME/.config/starship.toml
+

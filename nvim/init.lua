@@ -1,12 +1,16 @@
 require('plugins')
 
 vim.g.mapleader = ","
+vim.g.maplocalleader = ","
 
 vim.cmd([[
     so ~/.config/nvim/legacy.vim
 ]])
 
 require('lualine').setup({
+    options = {
+        theme = "tokyonight"
+    },
     sections = {
         lualine_c = {
             'filename',
@@ -21,8 +25,7 @@ require('nvimcmp')
 require('mylsp')
 
 -- nvim-treesitter
-require('nvim-treesitter.configs').setup {
-    highlight = {
+require('nvim-treesitter.configs').setup { highlight = {
         enable = true,
         disable = function(lang, bufnr)
             return false
@@ -65,5 +68,50 @@ require("neo-tree").setup({
     }
 })
 
+require('tokyonight').setup({
+    transparent = true
+})
+vim.g.tokyonight_dark_float = false
+vim.g.tokyonight_transparent = vim.g.transparent_enabled
+
+-- require("transparent").setup({
+--   enable = false, -- boolean: enable transparent
+--   extra_groups = { -- table/string: additional groups that should be cleared
+--     -- In particular, when you set it to 'all', that means all available groups
+--
+--     -- example of akinsho/nvim-bufferline.lua
+--     "BufferLineTabClose",
+--     "BufferlineBufferSelected",
+--     "BufferLineFill",
+--     "BufferLineBackground",
+--     "BufferLineSeparator",
+--     "BufferLineIndicatorSelected",
+--     "NormalFloat",
+--     "NeoTreeNormal",
+--     "NeoTreeNormalNC",
+--     "TelescopeBorder",
+--     "TelescopeNormal",
+--   },
+--   exclude = {}, -- table: groups you don't want to clear
+-- })
+
+
+-- require('neorg').setup {
+--     load = {
+--         ["core.defaults"] = {}, -- Loads default behaviour
+--         ["core.norg.concealer"] = {}, -- Adds pretty icons to your documents
+--         ["core.norg.dirman"] = { -- Manages Neorg workspaces
+--             config = {
+--                 workspaces = {
+--                     notes = "~/notes",
+--                 },
+--             },
+--         },
+--     },
+-- }
+
+require('telescope_settings')
+
 require("keymap.harpoon")
 require("build")
+

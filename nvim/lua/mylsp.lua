@@ -107,35 +107,17 @@ require("clangd_extensions").setup {
         end,
     }
 }
-if not configs.ls_emmet then
-  configs.ls_emmet = {
-    default_config = {
-      cmd = { 'ls_emmet', '--stdio' };
-      filetypes = {
-        'html',
-        'css',
-        'scss',
-        'javascriptreact',
-        'typescriptreact',
-        'haml',
-        'xml',
-        'xsl',
-        'pug',
-        'slim',
-        'sass',
-        'stylus',
-        'less',
-        'sss',
-        'hbs',
-        'handlebars',
-        'markdown'
-      };
-      root_dir = function(fname)
-        return vim.loop.cwd()
-      end;
-      settings = {};
-    };
-  }
-end
+require('lspconfig').emmet_ls.setup({
+    -- on_attach = on_attach,
+    capabilities = capabilities,
+    filetypes = { 'html', 'typescriptreact', 'javascriptreact', 'css', 'sass', 'scss', 'less', 'xslt'},
+    init_options = {
+      html = {
+        options = {
+          -- For possible options, see: https://github.com/emmetio/emmet/blob/master/src/config.ts#L79-L267
+          ["bem.enabled"] = true,
+        },
+      },
+    }
+})
 
-require('lspconfig').ls_emmet.setup { capabilities = capabilities }

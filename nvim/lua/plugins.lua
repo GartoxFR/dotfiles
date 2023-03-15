@@ -1,8 +1,12 @@
 return require('packer').startup(function()
     use 'wbthomason/packer.nvim'
+
+    -- Color schemes
     use 'morhetz/gruvbox'
-    use 'junegunn/fzf'
-    use 'junegunn/fzf.vim'
+    use 'folke/tokyonight.nvim'
+
+    -- use 'junegunn/fzf'
+    -- use 'junegunn/fzf.vim'
     use 'kaicataldo/material.vim'
     use 'neovim/nvim-lspconfig'
     use 'ray-x/lsp_signature.nvim'
@@ -31,7 +35,6 @@ return require('packer').startup(function()
 
     use 'nvim-treesitter/nvim-treesitter'
     use 'nvim-treesitter/nvim-treesitter-context'
-
     use 'tpope/vim-surround'
     use 'tpope/vim-repeat'
     use 'numToStr/Comment.nvim'
@@ -75,4 +78,44 @@ return require('packer').startup(function()
 
     use 'dhruvasagar/vim-table-mode'
 
+
+    use {
+        'nvim-telescope/telescope.nvim',
+        requires = {
+            "nvim-lua/plenary.nvim",
+        }
+    }
+    -- use 'xiyaowong/nvim-transparent'
+
+
+    use {
+        "nvim-neorg/neorg",
+        -- tag = "v2.0.1",
+        config = function()
+            require('neorg').setup {
+                load = {
+                    ["core.defaults"] = {}, -- Loads default behaviour
+                    ["core.export"] = {}, -- Loads default behaviour
+                    ["core.norg.completion"] = {
+                        config = {
+                            engine = "nvim-cmp"
+                        }
+                    },
+                    ["core.norg.concealer"] = {}, -- Adds pretty icons to your documents
+                    ["core.norg.dirman"] = { -- Manages Neorg workspaces
+                        config = {
+                            workspaces = {
+                                notes = "~/notes",
+                            },
+                            index = "index.norg"
+                        },
+                    },
+                },
+            }
+        end,
+        -- run = ":Neorg sync-parsers",
+        requires = "nvim-lua/plenary.nvim",
+    }
+use 'jbyuki/nabla.nvim'
+use 'folke/zen-mode.nvim'
 end)
