@@ -1,7 +1,12 @@
 require('plugins')
+vim.opt.termguicolors = true
+require("notify").setup({
+  background_colour = "#000000",
+})
+vim.notify = require("notify")
 
-vim.g.mapleader = ","
-vim.g.maplocalleader = ","
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
 vim.cmd([[
     so ~/.config/nvim/legacy.vim
@@ -110,8 +115,37 @@ vim.g.tokyonight_transparent = vim.g.transparent_enabled
 --     },
 -- }
 
+
 require('telescope_settings')
 
 require("keymap.harpoon")
 require("build")
 
+
+require("toggleterm").setup {
+    size = function(term)
+        if term.direction == "horizontal" then
+            return 15
+        elseif term.direction == "vertical" then
+            return vim.o.columns * 0.3
+        end
+    end,
+    open_mapping = '<C-t>',
+}
+
+require('overseer_settings')
+
+require("oil").setup({
+  -- Id is automatically added at the beginning, and name at the end
+  -- See :help oil-columns
+  columns = {
+    -- "icon",
+    "permissions",
+    "size",
+    "mtime",
+  },
+})
+
+require('aerial').setup()
+
+vim.keymap.set('n', '<leader>a', '<cmd>AerialToggle<CR>')

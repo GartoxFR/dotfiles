@@ -116,6 +116,15 @@ return require('packer').startup(function()
         -- run = ":Neorg sync-parsers",
         requires = "nvim-lua/plenary.nvim",
     }
-use 'jbyuki/nabla.nvim'
-use 'folke/zen-mode.nvim'
+    use 'akinsho/toggleterm.nvim'
+    use 'stevearc/overseer.nvim'
+    use 'stevearc/dressing.nvim'
+    use 'rcarriga/nvim-notify'
+    use 'aklt/plantuml-syntax'
+    use 'stevearc/oil.nvim'
+    use {
+      'stevearc/aerial.nvim',
+      config = function() require('aerial').setup() end
+    }
+     
 end)

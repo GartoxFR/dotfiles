@@ -5,7 +5,7 @@ window:
   class:
     instance: Alacritty
     general: Alacritty
-  opacity: 0.60
+  opacity: 0.77
   # startup_mode: Fullscreen
 
 font:
@@ -17,7 +17,7 @@ font:
     style: Bold
   italic:
     family: JetBrains Mono Nerd Font
-    style: MediumItalic
+    style: Italic
   bold_italic:
     family: JetBrains Mono Nerd Font
     style: BoldItalic
@@ -35,7 +35,7 @@ key_bindings:
 colors:
   # Default colors
   primary:
-    background: '0x1a1b26'
+    background: '0x15161e'
     foreground: '0xc0caf5'
 
   # Normal colors

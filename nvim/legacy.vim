@@ -141,7 +141,7 @@ nnoremap <leader>gs :Magit<CR>
 
 set noswapfile
 
-nnoremap <leader>e :Neotree toggle<CR>
+nnoremap <leader>e :Oil<CR>
 let g:table_mode_corner='|'
 
 function! SynGroup()
