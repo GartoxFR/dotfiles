@@ -6,7 +6,7 @@ require("notify").setup({
 vim.notify = require("notify")
 
 vim.g.mapleader = " "
-vim.g.maplocalleader = " "
+vim.g.maplocalleader = "m"
 
 vim.cmd([[
     so ~/.config/nvim/legacy.vim

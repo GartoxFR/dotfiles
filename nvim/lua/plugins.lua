@@ -126,5 +126,7 @@ return require('packer').startup(function()
       'stevearc/aerial.nvim',
       config = function() require('aerial').setup() end
     }
+    use 'kmonad/kmonad-vim'
+    use 'jalvesaq/Nvim-R'
      
 end)

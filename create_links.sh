@@ -15,6 +15,8 @@ ln -sf $DP/spotifyd $HOME/.config
 ln -sf $DP/spotify-tui $HOME/.config 
 ln -sf $DP/alacritty.yml $HOME/.config 
 
+ln -sf $DP/kmonad $HOME/.config 
+
 ln -sf $DP/tmux/.tmux.conf $HOME 
 ln -sf $DP/tmux/.tmux.conf.local $HOME 
 
