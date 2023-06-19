@@ -16,11 +16,11 @@ set $mod Mod4
 font pango:monospace 8
 
 # Colors
-client.focused #7aa2f7 #285577 #ffffff #9d7cd8 #9d7cd8 
+client.focused #7aa2f7 #285577 #ffffff #f7768e #f7768e 
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-#font pango:DejaVu Sans Mono 8
+font JetBrainsMonoNerdFont:8
 
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart
@@ -222,9 +222,10 @@ bindsym $mod+r mode "resize"
 # }
 
 # Gaps
-gaps inner 10
+gaps inner 30
+gaps top -25
 # smart_borders no_gaps
-# smart_gaps on
+# smart_g;rs on
 default_border pixel 2
 default_floating_border pixel 1
 title_align center
@@ -235,8 +236,8 @@ for_window [class=".*"] border pixel 2
 
 # Startup 
 # Custom keymap
-exec_always --no-startup-id xmodmap ~/.Xmodmap
-exec_always --no-startup-id xcape -e 'Control_L=Escape' -t 300
+# exec_always --no-startup-id xmodmap ~/.Xmodmap
+# exec_always --no-startup-id xcape -e 'Control_L=Escape' -t 300
 
 # numlock by default
 exec --no-startup-id numlockx

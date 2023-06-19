@@ -30,10 +30,10 @@ local on_attach = function(client, bufnr)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>f', '<cmd>lua vim.lsp.buf.format { async = true }<CR>', opts)
 
-  vim.api.nvim_create_autocmd({"BufWritePre"}, {
-      callback = function() vim.lsp.buf.format({async = false}) end,
-      buffer = bufnr
-  })
+  -- vim.api.nvim_create_autocmd({"BufWritePre"}, {
+  --     callback = function() vim.lsp.buf.format({async = false}) end,
+  --     buffer = bufnr
+  -- })
 end
 local configs = require'lspconfig.configs'
 -- Use a loop to conveniently call 'setup' on multiple servers and
@@ -107,6 +107,9 @@ require("clangd_extensions").setup {
             on_attach(client, bufnr)
             vim.keymap.set("n", "gs", '<cmd>ClangdSwitchSourceHeader<cr>', { buffer = bufnr, silent = true })
         end,
+    },
+    extensions = {
+        autoSetHints = false,
     }
 }
 require('lspconfig').emmet_ls.setup({

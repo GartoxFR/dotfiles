@@ -1,15 +1,15 @@
  (defcfg
-    input (device-file "/dev/input/by-path/pci-0000:00:14.0-usb-0:1.3:1.0-event-kbd")
+    input (device-file "/dev/input/by-path/pci-0000:00:14.0-usb-0:3.3:1.0-event-kbd")
     output (uinput-sink "My KMonad output")
 
-    fallthrough true
+    fallthrough false
 )
 
  (defsrc 
     1 2 3 4 5 8 9 0 - =
     q w e r t i o p [ ]
     a s d f g k l ; ' \
-            v b m ,
+          c v m ,
  )
 
  (defalias
@@ -22,6 +22,16 @@
     ctl_k (tap-hold-next-release 200 k ctl)
     alt_l (tap-hold-next-release 200 l alt)
     met_; (tap-hold-next-release 200 ; met)
+
+    met_curl (tap-hold-next-release 200 { met)
+    alt_par (tap-hold-next-release 200 \( alt)
+    ctl_par (tap-hold-next-release 200 \) ctl)
+    shift_curl (tap-hold-next-release 200 } lshift)
+    
+    shift_- (tap-hold-next-release 200 - rshift)
+    ctl_< (tap-hold-next-release 200 < ctl)
+    alt_> (tap-hold-next-release 200 > alt)
+    met_quote (tap-hold-next-release 200 " met)
 )
 
 (deflayer Alpha
@@ -42,12 +52,20 @@
     XX XX XX XX XX          XX 7 8 9 XX
     met alt ctl lshift XX   XX 4 5 6 XX
     XX XX XX XX XX           0 1 2 3 XX
-        backspace esc space enter 
+        backspace esc space (tap-hold-next-release 200 enter (layer-toggle Nav)) 
 )
 
 (deflayer Sym
     XX [ ] $ % ^ & * ' XX
-     { \( \) } = + - < > "  
+     @met_curl @alt_par @ctl_par @shift_curl = + @shift_- @ctl_< @alt_> @met_quote
      ~ ` | \_ / \\ @ # ! ?
-        backspace esc space enter 
+        (tap-hold-next-release 200 backspace (layer-toggle Nav)) esc space enter 
+)
+
+
+(deflayer Nav
+    XX XX XX XX XX home pgdn pgup end pause
+    met alt ctl lshift tab left down up right XX
+    XX XX XX XX XX XX XX XX XX XX 
+            XX XX XX XX
 )

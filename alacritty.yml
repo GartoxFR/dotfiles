@@ -5,7 +5,7 @@ window:
   class:
     instance: Alacritty
     general: Alacritty
-  opacity: 0.77
+  opacity: 0.70
   # startup_mode: Fullscreen
 
 font:
@@ -27,9 +27,6 @@ env:
 
 shell:
   program: /usr/bin/tmux
-
-key_bindings:
-  - { key: F, mods: Control, command: {program: "bash", args: ["~/dotfiles/scripts/tmux-sessionizer.sh"]}}
 
 # TokyoNight Alacritty Colors
 colors:

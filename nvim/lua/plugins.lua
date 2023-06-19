@@ -90,30 +90,22 @@ return require('packer').startup(function()
 
     use {
         "nvim-neorg/neorg",
-        -- tag = "v2.0.1",
         config = function()
             require('neorg').setup {
                 load = {
                     ["core.defaults"] = {}, -- Loads default behaviour
-                    ["core.export"] = {}, -- Loads default behaviour
-                    ["core.norg.completion"] = {
-                        config = {
-                            engine = "nvim-cmp"
-                        }
-                    },
-                    ["core.norg.concealer"] = {}, -- Adds pretty icons to your documents
-                    ["core.norg.dirman"] = { -- Manages Neorg workspaces
+                    ["core.concealer"] = {}, -- Adds pretty icons to your documents
+                    ["core.dirman"] = { -- Manages Neorg workspaces
                         config = {
                             workspaces = {
-                                notes = "~/notes",
+                                notes = "~/work/notes",
                             },
-                            index = "index.norg"
                         },
                     },
                 },
             }
         end,
-        -- run = ":Neorg sync-parsers",
+        run = ":Neorg sync-parsers",
         requires = "nvim-lua/plenary.nvim",
     }
     use 'akinsho/toggleterm.nvim'

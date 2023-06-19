@@ -1,0 +1,32 @@
+set folder = "imaps://ewan.chorynski@insa-lyon.fr@partage.insa-lyon.fr:993"
+set smtp_url = "smtp://ewan.chorynski@insa-lyon.fr@partage.insa-lyon.fr:587"
+
+set imap_pass = "`pass show partage`"
+set smtp_pass = "`pass show partage`"
+
+
+set from = "ewan.chorynski@insa-lyon.fr"
+set realname = "Ewan Chorynski"
+
+set record = "+Sent"
+set trash = "+Trash"
+set postponed = "+Drafts"
+
+set spoolfile = "+INBOX"
+
+mailboxes =INBOX =Sent =Trash =Drafts =Junk =Other
+
+set edit_headers = yes
+
+source color.muttrc
+
+source aliases
+set alias_file = "mutt/aliases"
+
+set sidebar_visible = yes
+set sidebar_width = 20
+
+bind index,pager \CP sidebar-prev 
+bind index,pager \CN sidebar-next 
+bind index,pager \CI sidebar-open 
+bind index,pager \CB sidebar-toggle-visible 

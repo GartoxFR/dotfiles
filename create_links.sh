@@ -7,6 +7,7 @@ mkdir -p $HOME/.config/
 DP=$(pwd)
 
 ln -sf $DP/nvim $HOME/.config 
+ln -sf $DP/mutt $HOME/.config 
 ln -sf $DP/i3 $HOME/.config 
 ln -sf $DP/picom $HOME/.config 
 ln -sf $DP/polybar $HOME/.config 
