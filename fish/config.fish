@@ -4,6 +4,21 @@ alias vim=nvim
 alias vi=nvim
 
 alias gla="git log --all --graph --decorate --oneline"
+alias g 'git'
+alias ga 'git add'
+alias ga. 'git add .'
+alias gap 'git add --patch'
+alias gapn 'git add --intent-to-add .; and git add --patch'
+alias gb 'git branch'
+alias gc 'git commit'
+alias gca 'git commit --amend'
+alias gp 'git push'
+alias gs 'git status'
+alias gd 'git diff'
+alias gl 'git log'
+alias gf 'git fetch'
+alias gfp 'git fetch; and git pull'
+alias gt 'git tag'
 
 export BAT_THEME="ansi"
 export PAGER="less"
