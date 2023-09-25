@@ -25,6 +25,7 @@ cmp.setup({
 
     sources = {
         { name = 'neorg'},
+        { name = 'orgmode'},
         { name = 'nvim_lua'},
         { name = 'nvim_lsp' },
         { name = 'luasnip' }, -- For luasnip users.
@@ -43,7 +44,8 @@ cmp.setup({
                 nvim_lua = "[api]",
                 luasnip = "[snip]",
                 path = "[path]",
-                neorg = "[neorg]"
+                neorg = "[neorg]",
+                orgmode = "[org]"
             }
         },
         

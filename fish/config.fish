@@ -1,5 +1,7 @@
 alias o="xdg-open"
 
+alias ls=exa
+
 alias vim=nvim
 alias vi=nvim
 
@@ -19,6 +21,11 @@ alias gl 'git log'
 alias gf 'git fetch'
 alias gfp 'git fetch; and git pull'
 alias gt 'git tag'
+
+function mkcd
+  mkdir $argv
+  and cd $argv
+end
 
 export BAT_THEME="ansi"
 export PAGER="less"
@@ -62,5 +69,9 @@ set -g fish_pager_color_prefix $cyan
 set -g fish_pager_color_completion $foreground
 set -g fish_pager_color_description $comment
 set -g fish_pager_color_selected_background --background=$selection
+
+fish_vi_key_bindings
+
+fish_add_path /home/ewan/work/bin
 
 starship init fish | source

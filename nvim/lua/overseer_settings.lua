@@ -14,11 +14,11 @@ overseer.setup({
   -- }
 })
 
-vim.keymap.set('n', '<leader>oc', '<cmd>OverseerRunCmd<cr>', {})
-vim.keymap.set('n', '<leader>or', '<cmd>OverseerRun<cr>', {})
-vim.keymap.set('n', '<leader>oa', '<cmd>OverseerQuickAction<cr>', {})
-vim.keymap.set('n', '<leader>ot', '<cmd>OverseerToggle<cr>', {})
-vim.keymap.set('n', '<leader>ol', '<cmd>OverseerRestartLast<cr>', {})
+-- vim.keymap.set('n', '<leader>oc', '<cmd>OverseerRunCmd<cr>', {})
+-- vim.keymap.set('n', '<leader>or', '<cmd>OverseerRun<cr>', {})
+-- vim.keymap.set('n', '<leader>oa', '<cmd>OverseerQuickAction<cr>', {})
+-- vim.keymap.set('n', '<leader>ot', '<cmd>OverseerToggle<cr>', {})
+-- vim.keymap.set('n', '<leader>ol', '<cmd>OverseerRestartLast<cr>', {})
 
 vim.api.nvim_create_user_command("OverseerRestartLast", function()
   local overseer = require("overseer")

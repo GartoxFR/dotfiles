@@ -88,26 +88,34 @@ return require('packer').startup(function()
     -- use 'xiyaowong/nvim-transparent'
 
 
-    use {
-        "nvim-neorg/neorg",
-        config = function()
-            require('neorg').setup {
-                load = {
-                    ["core.defaults"] = {}, -- Loads default behaviour
-                    ["core.concealer"] = {}, -- Adds pretty icons to your documents
-                    ["core.dirman"] = { -- Manages Neorg workspaces
-                        config = {
-                            workspaces = {
-                                notes = "~/work/notes",
-                            },
-                        },
-                    },
-                },
-            }
-        end,
-        run = ":Neorg sync-parsers",
-        requires = "nvim-lua/plenary.nvim",
-    }
+    -- use {
+    --     "nvim-neorg/neorg",
+    --     config = function()
+    --         require('neorg').setup {
+    --             load = {
+    --                 ["core.defaults"] = {}, -- Loads default behaviour
+    --                 ["core.concealer"] = {
+    --                     config = {
+    --                         fold = false,
+    --                     },
+    --                 }, -- Adds pretty icons to your documents
+    --                 ["core.dirman"] = { -- Manages Neorg workspaces
+    --                     config = {
+    --                         workspaces = {
+    --                             work = "~/work/notes",
+    --                         },
+    --                     },
+    --                 },
+    --                 ["core.tempus"] = {},
+    --                 ["core.export"] = {},
+    --                 ["core.ui.calendar"] = {},
+    --             },
+    --         }
+    --     end,
+    --     run = ":Neorg sync-parsers",
+    --     requires = "nvim-lua/plenary.nvim",
+    -- }
+
     use 'akinsho/toggleterm.nvim'
     use 'stevearc/overseer.nvim'
     use 'stevearc/dressing.nvim'
@@ -120,5 +128,9 @@ return require('packer').startup(function()
     }
     use 'kmonad/kmonad-vim'
     use 'jalvesaq/Nvim-R'
-     
+
+    use 'folke/trouble.nvim'
+    use 'nvim-tree/nvim-web-devicons'      
+
+    use 'nvim-orgmode/orgmode'
 end)

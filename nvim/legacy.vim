@@ -7,14 +7,19 @@ set nowrap
 set splitright
 set splitbelow
 
+set nofoldenable
+
 set so=10
 
 " faster updates!
 set updatetime=100
 
-nnoremap <leader>p :lua require("nabla").popup()<CR> 
+" nnoremap <leader>p :lua require("nabla").popup()<CR> 
 " Customize with popup({border = ...})  : `single` (default), `double`, `rounded`
-
+" nnoremap q: <nop>
+" Remove {} motions from jump list
+nnoremap <silent> } :<C-u>execute "keepjumps norm! " . v:count1 . "}"<CR>
+nnoremap <silent> { :<C-u>execute "keepjumps norm! " . v:count1 . "{"<CR>
 " no hidden buffers
 set hidden&
 
@@ -55,6 +60,30 @@ hi NeoTreeNormal guibg=NONE ctermbg=NONE
 hi NeoTreeNormalNC guibg=NONE ctermbg=NONE
 hi TelescopeBorder guibg=NONE ctermbg=NONE
 hi TelescopeNormal guibg=NONE ctermbg=NONE
+
+hi TroubleCount guibg=NONE ctermbg=NONE
+hi TroubleError guibg=NONE ctermbg=NONE
+hi TroubleNormal guibg=NONE ctermbg=NONE
+hi TroubleTextInformation guibg=NONE ctermbg=NONE
+hi TroubleSignWarning guibg=NONE ctermbg=NONE
+hi TroubleLocation guibg=NONE ctermbg=NONE
+hi TroubleWarning guibg=NONE ctermbg=NONE
+hi TroublePreview guibg=NONE ctermbg=NONE
+hi TroubleTextError guibg=NONE ctermbg=NONE
+hi TroubleSignInformation guibg=NONE ctermbg=NONE
+hi TroubleIndent guibg=NONE ctermbg=NONE
+hi TroubleSource guibg=NONE ctermbg=NONE
+hi TroubleSignHint guibg=NONE ctermbg=NONE
+hi TroubleSignOther guibg=NONE ctermbg=NONE
+hi TroubleFoldIcon guibg=NONE ctermbg=NONE
+hi TroubleTextWarning guibg=NONE ctermbg=NONE
+hi TroubleCode guibg=NONE ctermbg=NONE
+hi TroubleInformation guibg=NONE ctermbg=NONE
+hi TroubleSignError guibg=NONE ctermbg=NONE
+hi TroubleFile guibg=NONE ctermbg=NONE
+hi TroubleHint guibg=NONE ctermbg=NONE
+hi TroubleTextHint guibg=NONE ctermbg=NONE
+hi TroubleText guibg=NONE ctermbg=NONE
 
 let g:cmake_link_compile_commands = 1
 
@@ -151,3 +180,5 @@ endfun
 
 
 let R_external_term = "tmux split -h"
+
+au BufNewFile,BufRead *.wgsl set filetype=wgsl

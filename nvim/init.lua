@@ -29,6 +29,35 @@ require('nvimcmp')
 
 require('mylsp')
 
+require('orgmode').setup{
+    org_agenda_files = {'~/org/**/*'},
+    org_default_notes_file = '~/org/refile.org',
+    org_capture_templates = {
+        t = {
+            description = 'Simple task',
+            template = '* TODO %?\n %u'
+        },
+        f = {
+            description = 'Task in file',
+            template = '* TODO %a %?\n %u'
+        },
+        e =  'Event',
+        er = {
+          description = 'recurring',
+          template = '** %?\n',
+          target = '~/org/calendar.org',
+          headline = 'recurring'
+        },
+        eo = {
+          description = 'one-time',
+          template = '** %?\n',
+          target = '~/org/calendar.org',
+          headline = 'one-time'
+        }
+    }
+}
+
+require('orgmode').setup_ts_grammar()
 -- nvim-treesitter
 require('nvim-treesitter.configs').setup { highlight = {
         enable = true,
@@ -117,6 +146,7 @@ vim.g.tokyonight_transparent = vim.g.transparent_enabled
 
 
 require('telescope_settings')
+require('trouble_settings')
 
 require("keymap.harpoon")
 require("build")
@@ -139,10 +169,10 @@ require("oil").setup({
   -- Id is automatically added at the beginning, and name at the end
   -- See :help oil-columns
   columns = {
-    -- "icon",
-    "permissions",
-    "size",
-    "mtime",
+    "icon",
+    -- "permissions",
+    -- "size",
+    -- "mtime",
   },
 })
 
