@@ -4,6 +4,7 @@ return require('packer').startup(function()
     -- Color schemes
     use 'morhetz/gruvbox'
     use 'folke/tokyonight.nvim'
+    use "lunarvim/horizon.nvim"
 
     -- use 'junegunn/fzf'
     -- use 'junegunn/fzf.vim'
@@ -31,7 +32,6 @@ return require('packer').startup(function()
 
     use 'windwp/nvim-autopairs'
     use 'cdelledonne/vim-cmake'
-    use 'zefei/vim-colortuner'
 
     use 'nvim-treesitter/nvim-treesitter'
     use 'nvim-treesitter/nvim-treesitter-context'
@@ -61,19 +61,6 @@ return require('packer').startup(function()
 
     use 'tikhomirov/vim-glsl'
 
-     -- Unless you are still migrating, remove the deprecated commands from v1.x
-    vim.cmd([[ let g:neo_tree_remove_legacy_commands = 1 ]])
-
-    use {
-        "nvim-neo-tree/neo-tree.nvim",
-        branch = "v2.x",
-        requires = { 
-            "nvim-lua/plenary.nvim",
-            "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
-            "MunifTanjim/nui.nvim",
-        }
-    }
-
     use 'simrat39/rust-tools.nvim'
 
     use 'dhruvasagar/vim-table-mode'
@@ -85,8 +72,6 @@ return require('packer').startup(function()
             "nvim-lua/plenary.nvim",
         }
     }
-    -- use 'xiyaowong/nvim-transparent'
-
 
     -- use {
     --     "nvim-neorg/neorg",
@@ -133,4 +118,6 @@ return require('packer').startup(function()
     use 'nvim-tree/nvim-web-devicons'      
 
     use 'nvim-orgmode/orgmode'
+
+    use {'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async'}
 end)

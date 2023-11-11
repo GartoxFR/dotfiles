@@ -16,7 +16,6 @@ local on_attach = function(client, bufnr)
   -- See `:help vim.lsp.*` for documentation on any of the below functions
   vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
-  vim.api.nvim_buf_set_keymap(bufnr, 'n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>s', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
   -- vim.api.nvim_buf_set_keymap(bufnr, 'i', ',s', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
@@ -29,6 +28,14 @@ local on_attach = function(client, bufnr)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gr', '<cmd>lua require("trouble").open("lsp_references") <CR>', opts)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>f', '<cmd>lua vim.lsp.buf.format { async = true }<CR>', opts)
 
+
+  vim.keymap.set('n', 'K', function()
+      local winid = require('ufo').peekFoldedLinesUnderCursor()
+      if not winid then
+          vim.lsp.buf.hover()
+      end
+  end, {buffer = bufnr})
+
   -- vim.api.nvim_create_autocmd({"BufWritePre"}, {
   --     callback = function() vim.lsp.buf.format({async = false}) end,
   --     buffer = bufnr
@@ -37,19 +44,30 @@ end
 local configs = require'lspconfig.configs'
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { 'clangd', 'zls', 'pyright', 'rust_analyzer', 'r_language_server', 'hls'}
-for _, lsp in pairs(servers) do
-  require('lspconfig')[lsp].setup {
-    on_attach = on_attach,
-    flags = {
-      -- This will be the default in neovim 0.7+
-      debounce_text_changes = 150,
-    }
-  }
-end
+-- local servers = { 'clangd', 'zls', 'pyright', 'rust_analyzer', 'r_language_server', 'hls'}
+-- for _, lsp in pairs(servers) do
+--   require('lspconfig')[lsp].setup {
+--     on_attach = on_attach,
+--     flags = {
+--       -- This will be the default in neovim 0.7+
+--       debounce_text_changes = 150,
+--     }
+--   }
+-- end
 
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
+capabilities.textDocument.foldingRange = {
+    dynamicRegistration = false,
+    lineFoldingOnly = true
+}
+
+
+require('lspconfig').clangd.setup {
+  cmd = {"clangd", "--query-driver", "/usr/bin/arm-none-eabi-gcc,/usr/bin/arm-none-eabi-g++"},
+  on_attach = on_attach,
+  capabilities = capabilities
+}
 
 require('lspconfig').zls.setup {
   on_attach = on_attach,
@@ -71,7 +89,12 @@ rt.setup({
     server = {
         on_attach = function(client, bufnr)
             on_attach(client, bufnr)
-            vim.keymap.set("n", "K", rt.hover_actions.hover_actions, {buffer = bufnr})
+            vim.keymap.set('n', 'K', function()
+                local winid = require('ufo').peekFoldedLinesUnderCursor()
+                if not winid then
+                  rt.hover_actions.hover_actions()
+                end
+            end, {buffer = bufnr})
             vim.keymap.set("n", "<leader>qf", rt.code_action_group.code_action_group, {buffer = bufnr})
         end,
         capabilities = capabilities,

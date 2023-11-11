@@ -75,3 +75,5 @@ fish_vi_key_bindings
 fish_add_path /home/ewan/work/bin
 
 starship init fish | source
+
+export LIBVIRT_DEFAULT_URI="qemu:///system"

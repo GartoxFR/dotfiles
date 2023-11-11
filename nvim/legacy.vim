@@ -7,8 +7,6 @@ set nowrap
 set splitright
 set splitbelow
 
-set nofoldenable
-
 set so=10
 
 " faster updates!
@@ -28,7 +26,6 @@ set autoread
 
 set termguicolors
 
-let g:gruvbox_contrast_dark="hard"
 colorscheme tokyonight-night
 
 " Transparent background
@@ -84,6 +81,11 @@ hi TroubleFile guibg=NONE ctermbg=NONE
 hi TroubleHint guibg=NONE ctermbg=NONE
 hi TroubleTextHint guibg=NONE ctermbg=NONE
 hi TroubleText guibg=NONE ctermbg=NONE
+
+hi FoldColumn guibg=NONE ctermbg=NONE
+hi Folded guibg=#202330
+hi TreesitterContext guibg=#202330
+hi TreesitterContextBottom gui=underline
 
 let g:cmake_link_compile_commands = 1
 

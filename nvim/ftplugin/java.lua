@@ -8,7 +8,13 @@ vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 -- See `:help vim.lsp.*` for documentation on any of the below functions
 vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
 vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
-vim.api.nvim_buf_set_keymap(bufnr, 'n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
+vim.keymap.set('n', 'K', function()
+    local winid = require('ufo').peekFoldedLinesUnderCursor()
+    if not winid then
+        -- choose one of coc.nvim and nvim lsp
+        vim.lsp.buf.hover()
+    end
+end)
 vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
 vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>s', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
 vim.api.nvim_buf_set_keymap(bufnr, 'i', '<C-s>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
@@ -29,6 +35,11 @@ vim.api.nvim_buf_set_keymap(bufnr, 'v', '<leader>f', '<cmd>lua vim.lsp.buf.forma
 -- })
 
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+capabilities.textDocument.foldingRange = {
+    dynamicRegistration = false,
+    lineFoldingOnly = true
+}
 
 -- See `:help vim.lsp.start_client` for an overview of the supported `config` options.
 local config = {
@@ -52,7 +63,7 @@ local config = {
         '--add-opens', 'java.base/java.util=ALL-UNNAMED',
         '--add-opens', 'java.base/java.lang=ALL-UNNAMED',
 
-        '-jar', '/home/ewan/.local/share/javalsp/plugins/org.eclipse.equinox.launcher_1.6.400.v20210924-0641.jar',
+        '-jar', '/home/ewan/.local/share/javalsp/plugins/org.eclipse.equinox.launcher_1.6.500.v20230717-2134.jar',
         -- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^                                       ^^^^^^^^^^^^^^
         -- Must point to the                                                     Change this to
         -- eclipse.jdt.ls installation                                           the actual version
