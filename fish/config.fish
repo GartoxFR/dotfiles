@@ -34,46 +34,27 @@ export EDITOR="nvim"
 function fish_greeting
 
 end
-
-# TokyoNight Color Palette
-set -l foreground c0caf5
-set -l selection 33467c
-set -l comment 565f89
-set -l red f7768e
-set -l orange ff9e64
-set -l yellow e0af68
-set -l green 9ece6a
-set -l purple 9d7cd8
-set -l cyan 7dcfff
-set -l pink bb9af7
-
-# Syntax Highlighting Colors
-set -g fish_color_normal $foreground
-set -g fish_color_command $cyan
-set -g fish_color_keyword $pink
-set -g fish_color_quote $yellow
-set -g fish_color_redirection $foreground
-set -g fish_color_end $orange
-set -g fish_color_error $red
-set -g fish_color_param $purple
-set -g fish_color_comment $comment
-set -g fish_color_selection --background=$selection
-set -g fish_color_search_match --background=$selection
-set -g fish_color_operator $green
-set -g fish_color_escape $pink
-set -g fish_color_autosuggestion $comment
-
-# Completion Pager Colors
-set -g fish_pager_color_progress $comment
-set -g fish_pager_color_prefix $cyan
-set -g fish_pager_color_completion $foreground
-set -g fish_pager_color_description $comment
-set -g fish_pager_color_selected_background --background=$selection
-
 fish_vi_key_bindings
 
 fish_add_path /home/ewan/work/bin
+fish_add_path /home/ewan/dotfiles/rofi/bin
 
 starship init fish | source
 
 export LIBVIRT_DEFAULT_URI="qemu:///system"
+
+set -q GHCUP_INSTALL_BASE_PREFIX[1]; or set GHCUP_INSTALL_BASE_PREFIX $HOME ; set -gx PATH $HOME/.cabal/bin /home/ewan/.ghcup/bin $PATH # ghcup-env
+
+set -q GHCUP_INSTALL_BASE_PREFIX[1]; or set GHCUP_INSTALL_BASE_PREFIX $HOME ; set -gx PATH $HOME/.cabal/bin /home/ewan/.ghcup/bin $PATH # ghcup-env
+set -gx PATH $HOME/.cargo/bin $PATH
+
+function dual
+    xrandr --output HDMI-1-0 --auto --primary --right-of eDP-1 --auto
+    nitrogen --restore
+end
+
+function single
+    xrandr --output eDP-1 --primary --auto
+    xrandr --output HDMI-1-0 --off
+    nitrogen --restore
+end

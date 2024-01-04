@@ -1,5 +1,5 @@
 format = """
-[ ](fg:red)\
+[ ](fg:green)\
 $directory\
 $git_branch\
 $git_state\
@@ -9,10 +9,10 @@ $character"""
 add_newline = false
 
 [directory]
-style = "red"
+style = "green"
 
 [character]
-success_symbol = "[❯](purple)"
+success_symbol = "[❯](green)"
 error_symbol = "[❯](red)"
 vimcmd_symbol = "[❮](green)"
 

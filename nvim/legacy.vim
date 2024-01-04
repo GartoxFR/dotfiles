@@ -26,66 +26,67 @@ set autoread
 
 set termguicolors
 
-colorscheme tokyonight-night
+" colorscheme tokyonight-night
+colorscheme catppuccin-mocha
 
 " Transparent background
-hi Normal guibg=NONE ctermbg=NONE
-hi NormalNC guibg=NONE ctermbg=NONE
-hi Comment guibg=NONE ctermbg=NONE
-hi Constant guibg=NONE ctermbg=NONE
-hi Special guibg=NONE ctermbg=NONE
-hi Identifier guibg=NONE ctermbg=NONE
-hi Statement guibg=NONE ctermbg=NONE
-hi PreProc guibg=NONE ctermbg=NONE
-hi Type guibg=NONE ctermbg=NONE
-hi Underlined guibg=NONE ctermbg=NONE
-hi Todo guibg=NONE ctermbg=NONE
-hi String guibg=NONE ctermbg=NONE
-hi Function guibg=NONE ctermbg=NONE
-hi Conditional guibg=NONE ctermbg=NONE
-hi Repeat guibg=NONE ctermbg=NONE
-hi Operator guibg=NONE ctermbg=NONE
-hi Structure guibg=NONE ctermbg=NONE
-hi LineNr guibg=NONE ctermbg=NONE
-hi NonText guibg=NONE ctermbg=NONE
-hi SignColumn guibg=NONE ctermbg=NONE
-hi CursorLineNr guibg=NONE ctermbg=NONE
-hi EndOfBuffer guibg=NONE ctermbg=NONE
+" hi Normal guibg=NONE ctermbg=NONE
+" hi NormalNC guibg=NONE ctermbg=NONE
+" hi Comment guibg=NONE ctermbg=NONE
+" hi Constant guibg=NONE ctermbg=NONE
+" hi Special guibg=NONE ctermbg=NONE
+" hi Identifier guibg=NONE ctermbg=NONE
+" hi Statement guibg=NONE ctermbg=NONE
+" hi PreProc guibg=NONE ctermbg=NONE
+" hi Type guibg=NONE ctermbg=NONE
+" hi Underlined guibg=NONE ctermbg=NONE
+" hi Todo guibg=NONE ctermbg=NONE
+" hi String guibg=NONE ctermbg=NONE
+" hi Function guibg=NONE ctermbg=NONE
+" hi Conditional guibg=NONE ctermbg=NONE
+" hi Repeat guibg=NONE ctermbg=NONE
+" hi Operator guibg=NONE ctermbg=NONE
+" hi Structure guibg=NONE ctermbg=NONE
+" hi LineNr guibg=NONE ctermbg=NONE
+" hi NonText guibg=NONE ctermbg=NONE
+" hi SignColumn guibg=NONE ctermbg=NONE
+" hi CursorLineNr guibg=NONE ctermbg=NONE
+" hi EndOfBuffer guibg=NONE ctermbg=NONE
 
 " hi NormalFloat guibg=NONE ctermbg=NONE
-hi NeoTreeNormal guibg=NONE ctermbg=NONE
-hi NeoTreeNormalNC guibg=NONE ctermbg=NONE
-hi TelescopeBorder guibg=NONE ctermbg=NONE
-hi TelescopeNormal guibg=NONE ctermbg=NONE
+" hi NeoTreeNormal guibg=NONE ctermbg=NONE
+" hi NeoTreeNormalNC guibg=NONE ctermbg=NONE
+" hi TelescopeBorder guibg=NONE ctermbg=NONE
+" hi TelescopeNormal guibg=NONE ctermbg=NONE
 
-hi TroubleCount guibg=NONE ctermbg=NONE
-hi TroubleError guibg=NONE ctermbg=NONE
-hi TroubleNormal guibg=NONE ctermbg=NONE
-hi TroubleTextInformation guibg=NONE ctermbg=NONE
-hi TroubleSignWarning guibg=NONE ctermbg=NONE
-hi TroubleLocation guibg=NONE ctermbg=NONE
-hi TroubleWarning guibg=NONE ctermbg=NONE
-hi TroublePreview guibg=NONE ctermbg=NONE
-hi TroubleTextError guibg=NONE ctermbg=NONE
-hi TroubleSignInformation guibg=NONE ctermbg=NONE
-hi TroubleIndent guibg=NONE ctermbg=NONE
-hi TroubleSource guibg=NONE ctermbg=NONE
-hi TroubleSignHint guibg=NONE ctermbg=NONE
-hi TroubleSignOther guibg=NONE ctermbg=NONE
-hi TroubleFoldIcon guibg=NONE ctermbg=NONE
-hi TroubleTextWarning guibg=NONE ctermbg=NONE
-hi TroubleCode guibg=NONE ctermbg=NONE
-hi TroubleInformation guibg=NONE ctermbg=NONE
-hi TroubleSignError guibg=NONE ctermbg=NONE
-hi TroubleFile guibg=NONE ctermbg=NONE
-hi TroubleHint guibg=NONE ctermbg=NONE
-hi TroubleTextHint guibg=NONE ctermbg=NONE
-hi TroubleText guibg=NONE ctermbg=NONE
+" hi TroubleCount guibg=NONE ctermbg=NONE
+" hi TroubleError guibg=NONE ctermbg=NONE
+" hi TroubleNormal guibg=NONE ctermbg=NONE
+" hi TroubleTextInformation guibg=NONE ctermbg=NONE
+" hi TroubleSignWarning guibg=NONE ctermbg=NONE
+" hi TroubleLocation guibg=NONE ctermbg=NONE
+" hi TroubleWarning guibg=NONE ctermbg=NONE
+" hi TroublePreview guibg=NONE ctermbg=NONE
+" hi TroubleTextError guibg=NONE ctermbg=NONE
+" hi TroubleSignInformation guibg=NONE ctermbg=NONE
+" hi TroubleIndent guibg=NONE ctermbg=NONE
+" hi TroubleSource guibg=NONE ctermbg=NONE
+" hi TroubleSignHint guibg=NONE ctermbg=NONE
+" hi TroubleSignOther guibg=NONE ctermbg=NONE
+" hi TroubleFoldIcon guibg=NONE ctermbg=NONE
+" hi TroubleTextWarning guibg=NONE ctermbg=NONE
+" hi TroubleCode guibg=NONE ctermbg=NONE
+" hi TroubleInformation guibg=NONE ctermbg=NONE
+" hi TroubleSignError guibg=NONE ctermbg=NONE
+" hi TroubleFile guibg=NONE ctermbg=NONE
+" hi TroubleHint guibg=NONE ctermbg=NONE
+" hi TroubleTextHint guibg=NONE ctermbg=NONE
+" hi TroubleText guibg=NONE ctermbg=NONE
 
-hi FoldColumn guibg=NONE ctermbg=NONE
-hi Folded guibg=#202330
-hi TreesitterContext guibg=#202330
-hi TreesitterContextBottom gui=underline
+" hi FoldColumn guibg=NONE ctermbg=NONE
+" hi Folded guibg=#202330
+" hi TreesitterContext guibg=#202330
+" hi TreesitterContextBottom gui=underline
 
 let g:cmake_link_compile_commands = 1
 

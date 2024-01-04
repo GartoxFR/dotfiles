@@ -4,6 +4,7 @@ return require('packer').startup(function()
     -- Color schemes
     use 'morhetz/gruvbox'
     use 'folke/tokyonight.nvim'
+    use { "catppuccin/nvim", as = "catppuccin" }
     use "lunarvim/horizon.nvim"
 
     -- use 'junegunn/fzf'
@@ -120,4 +121,6 @@ return require('packer').startup(function()
     use 'nvim-orgmode/orgmode'
 
     use {'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async'}
+
+    use 'jamestthompson3/nvim-remote-containers'
 end)

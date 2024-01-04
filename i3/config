@@ -16,7 +16,7 @@ set $mod Mod4
 font pango:monospace 8
 
 # Colors
-client.focused #7aa2f7 #285577 #ffffff #f7768e #f7768e 
+client.focused #7aa2f7 #285577 #ffffff #A6E3A1 #A6E3A1 
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -31,7 +31,7 @@ exec --no-startup-id dex --autostart --environment i3
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- dm-tool lock
+# exec --no-startup-id xss-lock --transfer-sleep-lock -- dm-tool lock
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
@@ -64,7 +64,7 @@ bindsym $mod+p exec --no-startup-id rofi -show drun -show-icons
 # bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
 
 # Power menu
-bindsym $mod+Pause exec --no-startup-id rofi -show p -modi p:power-menu
+bindsym $mod+Pause exec --no-startup-id rofi -show p -modi p:power-menuofi -show p -modi p:~/dotfiles/rofi/bin/power-menu
 
 # change focus
 bindsym $mod+h focus left
@@ -222,8 +222,7 @@ bindsym $mod+r mode "resize"
 # }
 
 # Gaps
-gaps inner 30
-gaps top -25
+gaps inner 10
 # smart_borders no_gaps
 # smart_g;rs on
 default_border pixel 2
@@ -245,12 +244,12 @@ exec --no-startup-id numlockx
 # exec_always --no-startup-id autorandr --change
 exec umonitor --listen --quiet
 # Transparency
-exec_always --no-startup-id picom 
+# exec_always --no-startup-id picom 
 # Polybar 
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 # Wallpaper
 exec_always --no-startup-id nitrogen --restore
 # Wifi and bluetooth systray
 exec --no-startup-id nm-applet
-exec --no-startup-id blueman-applet
+# exec --no-startup-id blueman-applet
 # exec --no-startup-id spotifyd

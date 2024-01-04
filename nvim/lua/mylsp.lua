@@ -65,6 +65,29 @@ capabilities.textDocument.foldingRange = {
 
 require('lspconfig').clangd.setup {
   cmd = {"clangd", "--query-driver", "/usr/bin/arm-none-eabi-gcc,/usr/bin/arm-none-eabi-g++"},
+  on_attach = function(client, bufnr)
+    on_attach(client, bufnr)
+    vim.keymap.set("n", "gs", '<cmd>ClangdSwitchSourceHeader<cr>', { buffer = bufnr, silent = true })
+  end,
+  capabilities = capabilities
+}
+
+require('lspconfig').hls.setup {
+  on_attach = on_attach,
+  capabilities = capabilities
+}
+
+require('lspconfig').r_language_server.setup {
+  on_attach = on_attach,
+  capabilities = capabilities
+}
+
+require('lspconfig').svelte.setup {
+  on_attach = on_attach,
+  capabilities = capabilities
+}
+
+require('lspconfig').tsserver.setup {
   on_attach = on_attach,
   capabilities = capabilities
 }
@@ -124,6 +147,7 @@ rt.setup({
 
 require("clangd_extensions").setup {
     server = {
+        
         capabilities = capabilities,
         on_attach = function(client, bufnr)
             on_attach(client, bufnr)
@@ -137,7 +161,7 @@ require("clangd_extensions").setup {
 require('lspconfig').emmet_ls.setup({
     -- on_attach = on_attach,
     capabilities = capabilities,
-    filetypes = { 'html', 'typescriptreact', 'javascriptreact', 'markdown', 'css', 'sass', 'scss', 'less', 'xslt'},
+    filetypes = { 'html', 'typescriptreact', 'javascriptreact', 'css', 'sass', 'scss', 'less', 'xslt'},
     init_options = {
       html = {
         options = {

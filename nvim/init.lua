@@ -16,7 +16,7 @@ require('lualine').setup({
     options = {
         component_separators = { left = '|', right = '|'},
         section_separators = { left = '', right = ''},
-        theme = "tokyonight"
+        theme = "catppuccin"
     },
     sections = {
         lualine_c = {
