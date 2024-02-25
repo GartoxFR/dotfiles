@@ -50,11 +50,11 @@ set -gx PATH $HOME/.cargo/bin $PATH
 
 function dual
     xrandr --output HDMI-1-0 --auto --primary --right-of eDP-1 --auto
-    nitrogen --restore
+    nitrogen --restore 2> /dev/null
 end
 
 function single
     xrandr --output eDP-1 --primary --auto
     xrandr --output HDMI-1-0 --off
-    nitrogen --restore
+    nitrogen --restore 2> /dev/null
 end

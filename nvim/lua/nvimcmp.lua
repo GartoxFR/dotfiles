@@ -27,6 +27,7 @@ cmp.setup({
         { name = 'neorg'},
         { name = 'orgmode'},
         { name = 'nvim_lua'},
+        { name = 'nvim_lsp_signature_help' },
         { name = 'nvim_lsp' },
         { name = 'luasnip' }, -- For luasnip users.
         -- { name = 'ultisnips' }, -- For ultisnips users.

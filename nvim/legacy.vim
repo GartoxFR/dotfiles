@@ -167,13 +167,9 @@ let g:matlab_panel_size = 50
 let g:matlab_default_mappings='<F5>'
 
 
-nnoremap <leader>ga <Plug>(GitGutterStageHunk)
-nnoremap <leader>gu <Plug>(GitGutterUndoHunk)
-nnoremap <leader>gs :Magit<CR>
-
 set noswapfile
 
-nnoremap <leader>e :Oil<CR>
+
 let g:table_mode_corner='|'
 
 function! SynGroup()
