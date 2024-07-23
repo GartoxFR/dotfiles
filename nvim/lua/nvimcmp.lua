@@ -29,11 +29,11 @@ cmp.setup({
         { name = 'nvim_lua'},
         { name = 'nvim_lsp_signature_help' },
         { name = 'nvim_lsp' },
-        { name = 'luasnip' }, -- For luasnip users.
+        { name = 'luasnip', priority = 500 }, -- For luasnip users.
         -- { name = 'ultisnips' }, -- For ultisnips users.
         -- { name = 'snippy' }, -- For snippy users.
 
-        { name = 'buffer' },
+        { name = 'buffer', priority = 5 },
         { name = 'path' },
     },
     formatting = {

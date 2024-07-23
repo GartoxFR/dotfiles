@@ -18,6 +18,9 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup("plugins")
 
+vim.filetype.add({
+  pattern = { [".*/hyprland%.conf"] = "hyprlang" },
+})
 
 --require('plugins_old')
 vim.opt.termguicolors = true
@@ -38,6 +41,7 @@ require('nvimcmp')
 require('mylsp')
 
 
+require('luasnip.loaders.from_lua').lazy_load({paths = "~/.config/nvim/LuaSnip/"})
 local ls = require('luasnip')
 require("snippets")
 
@@ -89,7 +93,9 @@ end
 
 require('ufo').setup({
     open_fold_hl_timeout = 150,
-    close_fold_kinds = {'imports', 'comment'},
+    close_fold_kinds_for_ft = {
+        default = {'imports', 'comment'},
+    },
     fold_virt_text_handler = handler,
     preview = {
         win_config = {

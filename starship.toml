@@ -1,5 +1,6 @@
 format = """
-[ ](fg:green)\
+${custom.nixshell}\
+${custom.notnixshell}\
 $directory\
 $git_branch\
 $git_state\
@@ -7,6 +8,16 @@ $git_status\
 $character"""
 
 add_newline = false
+
+[custom.nixshell]
+command = "echo '󱄅'"
+when = 'test -n "$IN_NIX_SHELL"'
+format = "[$output](fg:red) "
+
+[custom.notnixshell]
+command = "echo '󱄅'"
+when = 'test -z "$IN_NIX_SHELL"'
+format = "[$output](fg:green) "
 
 [directory]
 style = "green"

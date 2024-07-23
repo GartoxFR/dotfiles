@@ -4,9 +4,6 @@ return {
     "jrozner/vim-antlr",
     {
         "nvim-orgmode/orgmode",
-        config = function()
-            require("orgmode").setup_ts_grammar()
-        end,
         opts = {
             org_agenda_files = {'~/org/**/*'},
             org_default_notes_file = '~/org/refile.org',

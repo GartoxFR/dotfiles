@@ -21,9 +21,7 @@ return {
         require('nvim-treesitter.configs').setup { 
             highlight = {
                 enable = true,
-                disable = function(lang, bufnr)
-                    return false
-                end
+                disable = { "latex", "tex" },
             },
             ensure_installed = { "c", "lua", "rust" },
 
@@ -43,7 +41,10 @@ return {
         }
     end},
 
-    "nvim-treesitter/nvim-treesitter-context",
+    {
+        "nvim-treesitter/nvim-treesitter-context",
+        opts = { max_lines = 3 },
+    },
     "tpope/vim-surround",
     {"tpope/vim-repeat", event = "VeryLazy"},
 
@@ -82,4 +83,10 @@ return {
     {"kevinhwang91/nvim-ufo", requires = "kevinhwang91/promise-async"},
     "kevinhwang91/promise-async",
     "dhruvasagar/vim-table-mode",
+
+    -- Wayload clipboard
+    "jasonccox/vim-wayland-clipboard",
+
+    { "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = { scope = {enabled = false}} },
+    "symphorien/vim-nixhash"
 }

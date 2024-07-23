@@ -1,0 +1,164 @@
+@import "mocha.css";
+* {
+    border: none;
+    border-radius: 0;
+    /* font-family: Cartograph CF Nerd Font, monospace; */
+    font-family: JetBrains Mono Nerd Font, monospace;
+    font-weight: bold;
+    font-size: 16px;
+    min-height: 25px;
+}
+
+window#waybar {
+    background: @crust;
+    color: @text;
+}
+
+tooltip {
+    background: @base;
+    border-radius: 10px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: @crust;
+}
+
+#workspaces button {
+    padding: 0px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    margin: 0px;
+    color: @surface1;
+    margin-right: 5px;
+}
+
+#workspaces button.active {
+    color: @subtext0;
+}
+
+#workspaces button.focused {
+    color: @subtext0;
+}
+
+#workspaces button.urgent {
+    color: @crust;
+    background: @blue;
+}
+
+#workspaces button:hover {
+    background: @crust;
+    color: @text;
+}
+
+#mpd,
+#cpu,
+#memory,
+#custom-language,
+#custom-updates,
+#custom-caffeine,
+#custom-weather,
+#window,
+#clock,
+#battery,
+#pulseaudio,
+#network,
+#workspaces,
+#tray,
+#backlight {
+    background: @crust;
+    padding: 0px 10px;
+    margin: 0px;
+}
+
+#cpu {
+    color: @lavender;
+}
+
+#memory {
+    color: @red;
+}
+
+#tray {
+    margin-right: 10px;
+}
+
+#workspaces {
+    background: @crust;
+    margin-left: 10px;
+    padding-right: 0px;
+    padding-left: 5px;
+}
+
+#custom-caffeine {
+    color: @sky;
+    margin-left: 10px;
+}
+
+#custom-language {
+    color: #f38ba8;
+}
+
+#custom-updates {
+    color: #f5c2e7;
+}
+
+#window {
+    margin-left: 60px;
+    margin-right: 60px;
+}
+
+#clock {
+    color: @peach;
+    margin-left: 5px;
+}
+
+#network {
+    color: #f9e2af;
+}
+
+#pulseaudio {
+    color: @sky;
+}
+
+#backlight {
+    color: @yellow;
+}
+
+#pulseaudio.microphone {
+    color: @mauve;
+    margin-right: 5px;
+}
+
+#battery {
+    color: @green;
+}
+
+#battery.normal.charging {
+    color: #ffb347;
+}
+
+
+#battery.warning.charging {
+    color: #ffb347;
+}
+
+#battery.critical.charging {
+    color: #ffb347;
+}
+
+#battery.critical {
+    color: @red;
+}
+
+#battery.warning {
+    color: @peach;
+}
+
+#custom-weather {
+    margin-left: 0px;
+}
+
+#mpd {
+    color: @sky;
+    margin-left: 10px;
+    margin-right: 10px;
+}

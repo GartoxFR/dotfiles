@@ -15,18 +15,12 @@ set $mod Mod4
 # is used in the bar {} block below.
 font pango:monospace 8
 
-include "./color.conf"
-
 # Colors
-client.focused $overlay2 $crust $subtext0 $yellow $mantle
-client.unfocused $overlay0 $crust $surface1 $yellow $mantle
-
-titlebar_border_thickness 0
-titlebar_padding 3
+client.focused #7aa2f7 #285577 #ffffff #A6E3A1 #A6E3A1 
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-font pango:JetBrainsMonoNerdFont Bold 12
+font JetBrainsMonoNerdFont:8
 
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart
@@ -62,7 +56,7 @@ bindsym $mod+Shift+A kill
 bindsym $mod+Shift+S exec maim -s > /home/ewan/Pictures/screenshots/$(date +%F-%T).png
 
 # start dmenu (a program launcher)
-bindsym $mod+p exec --no-startup-id rofi -show drun 
+bindsym $mod+p exec --no-startup-id rofi -show drun -show-icons
 # A more modern dmenu replacement is rofi:
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"
 # There also is i3-dmenu-desktop which only displays applications shipping a
@@ -221,8 +215,6 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-bindsym $mod+w exec "pkill -SIGUSR1 waybar"
-
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 # bar {
@@ -230,16 +222,14 @@ bindsym $mod+w exec "pkill -SIGUSR1 waybar"
 # }
 
 # Gaps
-#gaps outer -10
-gaps inner 5
-smart_borders no_gaps
-default_border normal 1
+gaps inner 10
+# smart_borders no_gaps
+# smart_g;rs on
+default_border pixel 2
 default_floating_border pixel 1
 title_align center
 
-# for_window [class=".*"] border pixel 1
-# for_window [title=".*"] opacity 0.97
-# for_window [workspace="6"] opacity 1
+for_window [class=".*"] border pixel 2
 # for_window [class="R_x11"] floating enable
 # for_window [class="MATLAB R2022b - academic us"] resize set 1280 720
 # for_window [class="MATLAB R2022b - academic us"] floating enable
@@ -250,19 +240,17 @@ title_align center
 # exec_always --no-startup-id xcape -e 'Control_L=Escape' -t 300
 
 # numlock by default
+exec --no-startup-id numlockx
 # Change monitors based on plugged in devices
 # exec_always --no-startup-id autorandr --change
+exec umonitor --listen --quiet
 # Transparency
 # exec_always --no-startup-id picom 
 # Polybar 
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 # Wallpaper
+exec_always --no-startup-id nitrogen --restore
 # Wifi and bluetooth systray
-exec --no-startup-id nm-applet --indicator
-exec --no-startup-id waybar 
-exec --no-startup-id swww-daemon
-exec --no-startup-id fcitx5 
-exec --no-startup-id dunst 
-exec --no-startup-id  sway_opacity_manager 0.97 0.91
-exec --no-startup-id  ~/dotfiles/i3/fix_xdg
+exec --no-startup-id nm-applet
 # exec --no-startup-id blueman-applet
 # exec --no-startup-id spotifyd

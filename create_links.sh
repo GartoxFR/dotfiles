@@ -16,7 +16,9 @@ ln -sf $DP/polybar $HOME/.config
 ln -sf $DP/rofi $HOME/.config 
 ln -sf $DP/spotifyd $HOME/.config 
 ln -sf $DP/spotify-tui $HOME/.config 
-ln -sf $DP/alacritty.toml $HOME/.config 
+ln -sf $DP/alacritty $HOME/.config 
+ln -sf $DP/hypr $HOME/.config 
+ln -sf $DP/waybar $HOME/.config 
 
 ln -sf $DP/kmonad $HOME/.config 
 

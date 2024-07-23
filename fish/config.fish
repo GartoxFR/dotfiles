@@ -1,7 +1,5 @@
 alias o="xdg-open"
 
-alias ls=exa
-
 alias vim=nvim
 alias vi=nvim
 
@@ -58,3 +56,5 @@ function single
     xrandr --output HDMI-1-0 --off
     nitrogen --restore 2> /dev/null
 end
+
+direnv hook fish | source

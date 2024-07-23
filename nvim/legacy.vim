@@ -181,3 +181,5 @@ endfun
 let R_external_term = "tmux split -h"
 
 au BufNewFile,BufRead *.wgsl set filetype=wgsl
+
+let g:vimtex_view_method = 'zathura_simple'

@@ -18,7 +18,10 @@ family = "JetBrains Mono Nerd Font"
 style = "Medium"
 
 [shell]
-program = "/usr/bin/tmux"
+program = "tmux"
+
+[window]
+dynamic_title = false
 
 [window.class]
 general = "Alacritty"

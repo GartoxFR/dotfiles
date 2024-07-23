@@ -14,7 +14,7 @@ return {
         wk.register({
             t = {
                 name = "Trouble",
-                l = {function() tr.toggle("document_diagnostics") end, "Open list"},
+                l = {function() tr.toggle("diagnostics") end, "Open list"},
                 n = {function() tr.next(opts) end, "Next diagnostic"},
                 p = {function() tr.previous(opts) end, "Previous diagnostic"},
             }

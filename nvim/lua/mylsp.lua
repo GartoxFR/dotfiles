@@ -28,6 +28,9 @@ local on_attach = function(client, bufnr)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>qf', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gr', '<cmd>lua require("trouble").open("lsp_references") <CR>', opts)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>f', '<cmd>lua vim.lsp.buf.format { async = true }<CR>', opts)
+  vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>uh', 
+        '<cmd>lua vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())<CR>'
+  , opts)
 
 
   vim.keymap.set('n', 'K', function()
@@ -65,14 +68,26 @@ capabilities.textDocument.foldingRange = {
 
 
 require('lspconfig').clangd.setup {
-  cmd = {"clangd", "--query-driver", "/usr/bin/arm-none-eabi-gcc,/usr/bin/arm-none-eabi-g++,/home/ewan/.espressif/tools/xtensa-esp32s3-elf/esp-12.2.0_20230208/xtensa-esp32s3-elf/bin/xtensa-esp32s3-elf-gcc,/home/ewan/.espressif/tools/xtensa-esp32s3-elf/esp-12.2.0_20230208/xtensa-esp32s3-elf/bin/xtensa-esp32s3-elf-g++"},
+  cmd = {"clangd"},
   on_attach = function(client, bufnr)
     on_attach(client, bufnr)
     vim.keymap.set("n", "gs", '<cmd>ClangdSwitchSourceHeader<cr>', { buffer = bufnr, silent = true })
-    require("clangd_extensions.inlay_hints").setup_autocmd()
-    require("clangd_extensions.inlay_hints").set_inlay_hints()
   end,
   capabilities = capabilities
+}
+require('lspconfig').nil_ls.setup {
+  on_attach = function(client, bufnr)
+    on_attach(client, bufnr)
+  end,
+  capabilities = capabilities,
+    settings = {
+     ['nil'] = {
+       testSetting = 42,
+       formatting = {
+         command = { "nixpkgs-fmt" },
+       },
+     },
+     }
 }
 
 require('lspconfig').hls.setup {
@@ -94,6 +109,20 @@ require('lspconfig').svelte.setup {
 }
 
 require('lspconfig').tsserver.setup {
+  on_attach = on_attach,
+  capabilities = capabilities
+}
+require('lspconfig').wgsl_analyzer.setup {
+  on_attach = on_attach,
+  capabilities = capabilities
+}
+
+require('lspconfig').uiua.setup {
+  on_attach = on_attach,
+  capabilities = capabilities
+}
+
+require('lspconfig').texlab.setup {
   on_attach = on_attach,
   capabilities = capabilities
 }
@@ -151,19 +180,6 @@ rt.setup({
     }
 })
 
-require("clangd_extensions").setup {
-    server = {
-        
-        capabilities = capabilities,
-        on_attach = function(client, bufnr)
-            on_attach(client, bufnr)
-            vim.keymap.set("n", "gs", '<cmd>ClangdSwitchSourceHeader<cr>', { buffer = bufnr, silent = true })
-        end,
-    },
-    extensions = {
-        autoSetHints = false,
-    }
-}
 require('lspconfig').emmet_ls.setup({
     -- on_attach = on_attach,
     capabilities = capabilities,
