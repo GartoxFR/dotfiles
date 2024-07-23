@@ -43,9 +43,9 @@ set $crust #11111b
 font pango:JetBrainsMono Bold 8
 
 # Colors
-client.focused           $lavender $base $text  $rosewater $green
+client.focused           $lavender $base $text  $rosewater $overlay1
 client.focused_inactive  $overlay0 $base $text  $rosewater $overlay0
-client.unfocused         $overlay0 $base $text  $rosewater $overlay0
+client.unfocused         $overlay0 $base $text  $rosewater $crust
 client.urgent            $peach    $base $peach $overlay0  $peach
 client.placeholder       $overlay0 $base $text  $overlay0  $overlay0
 client.background        $base
@@ -268,12 +268,13 @@ bar {
 }
 
 # Gaps
-gaps inner 5
+# gaps inner 5
 # smart_borders no_gaps
 # smart_g;rs on
 default_border pixel 1
 default_floating_border pixel 1
 title_align center
+hide_edge_borders smart
 
 for_window [class=".*"] border pixel 1
 # for_window [class="R_x11"] floating enable
