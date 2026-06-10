@@ -18,8 +18,8 @@ font pango:monospace 8
 include "./color.conf"
 
 # Colors
-client.focused $overlay2 $crust $subtext0 $yellow $mantle
-client.unfocused $overlay0 $crust $surface1 $yellow $mantle
+client.focused $orange $orange $grey0 $yellow $orange
+client.unfocused $bg_dim $bg0 $grey0 $yellow $bg_dim
 
 titlebar_border_thickness 0
 titlebar_padding 3
@@ -44,25 +44,25 @@ exec --no-startup-id dex --autostart --environment i3
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
-bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+bindsym XF86AudioRaiseVolume exec --no-startup-id pamixer -i 5
+bindsym XF86AudioLowerVolume exec --no-startup-id pamixer -d 5
+bindsym XF86AudioMute exec --no-startup-id pamixer -t
+# bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec kitty
 
 # kill focused window
 bindsym $mod+Shift+A kill
 
 # Screen shot
-bindsym $mod+Shift+S exec maim -s > /home/ewan/Pictures/screenshots/$(date +%F-%T).png
+bindsym $mod+Shift+S exec grim -g "$(slurp)" - > ~/Pictures/screenshots/$(date +%F-%T).png
 
 # start dmenu (a program launcher)
-bindsym $mod+p exec --no-startup-id rofi -show drun 
+bindsym $mod+p exec --no-startup-id fuzzel
 # A more modern dmenu replacement is rofi:
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"
 # There also is i3-dmenu-desktop which only displays applications shipping a
@@ -70,7 +70,7 @@ bindsym $mod+p exec --no-startup-id rofi -show drun
 # bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
 
 # Power menu
-bindsym $mod+Pause exec --no-startup-id rofi -show p -modi p:power-menuofi -show p -modi p:~/dotfiles/rofi/bin/power-menu
+# bindsym $mod+Pause exec --no-startup-id rofi -show p -modi p:power-menuofi -show p -modi p:~/dotfiles/rofi/bin/power-menu
 
 # change focus
 bindsym $mod+h focus left
@@ -123,8 +123,11 @@ bindsym $mod+q focus parent
 bindsym $mod+d focus child
 
 # Monitor variables
-set $monitor1 HDMI-1-0
+set $monitor1 HDMI-A-1
 set $monitor2 eDP-1
+
+output $monitor1 pos 0 0
+output $monitor2 pos 1920 0
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
@@ -221,7 +224,7 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-bindsym $mod+w exec "pkill -SIGUSR1 waybar"
+bindsym $mod+w exec "pkill -SIGUSR2 waybar"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
@@ -233,9 +236,9 @@ bindsym $mod+w exec "pkill -SIGUSR1 waybar"
 #gaps outer -10
 gaps inner 5
 smart_borders no_gaps
-default_border normal 1
+default_border pixel 1
 default_floating_border pixel 1
-title_align center
+# title_align center
 
 # for_window [class=".*"] border pixel 1
 # for_window [title=".*"] opacity 0.97
@@ -257,12 +260,17 @@ title_align center
 # Polybar 
 # Wallpaper
 # Wifi and bluetooth systray
-exec --no-startup-id nm-applet --indicator
+# exec --no-startup-id nm-applet --indicator
 exec --no-startup-id waybar 
-exec --no-startup-id swww-daemon
-exec --no-startup-id fcitx5 
-exec --no-startup-id dunst 
-exec --no-startup-id  sway_opacity_manager 0.97 0.91
+exec --no-startup-id swaybg -i ~/Pictures/wallpapers/a_train_tracks_in_a_tunnel.jpg
+# exec --no-startup-id fcitx5 
+# exec --no-startup-id dunst 
+# exec --no-startup-id  sway_opacity_manager 0.97 0.91
 exec --no-startup-id  ~/dotfiles/i3/fix_xdg
 # exec --no-startup-id blueman-applet
 # exec --no-startup-id spotifyd
+
+input type:keyboard {
+    xkb_layout us,lafayette
+    xkb_options grp:win_space_toggle
+}

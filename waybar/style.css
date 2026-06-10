@@ -1,21 +1,21 @@
-@import "mocha.css";
+@import "everforest.css";
 * {
     border: none;
     border-radius: 0;
     /* font-family: Cartograph CF Nerd Font, monospace; */
-    font-family: JetBrains Mono Nerd Font, monospace;
+    font-family: IosevkaTerm Nerd Font, monospace;
     font-weight: bold;
     font-size: 16px;
     min-height: 25px;
 }
 
 window#waybar {
-    background: @crust;
+    background: @bg_dim;
     color: @text;
 }
 
 tooltip {
-    background: @base;
+    background: @bg_dim;
     border-radius: 10px;
     border-width: 2px;
     border-style: solid;
@@ -23,30 +23,31 @@ tooltip {
 }
 
 #workspaces button {
-    padding: 0px;
+    padding: 5px;
     padding-top: 3px;
     padding-bottom: 3px;
     margin: 0px;
-    color: @surface1;
+    color: @grey1;
     margin-right: 5px;
 }
 
 #workspaces button.active {
-    color: @subtext0;
+    color: @grey1;
 }
 
 #workspaces button.focused {
-    color: @subtext0;
+    color: @grey1;
+    background: @bg_green;
 }
 
 #workspaces button.urgent {
-    color: @crust;
+    color: @red;
     background: @blue;
 }
 
 #workspaces button:hover {
-    background: @crust;
-    color: @text;
+    background: @bg1;
+    color: @grey2;
 }
 
 #mpd,
@@ -64,13 +65,13 @@ tooltip {
 #workspaces,
 #tray,
 #backlight {
-    background: @crust;
+    background: @bg_dim;
     padding: 0px 10px;
     margin: 0px;
 }
 
 #cpu {
-    color: @lavender;
+    color: @purple;
 }
 
 #memory {
@@ -82,14 +83,13 @@ tooltip {
 }
 
 #workspaces {
-    background: @crust;
     margin-left: 10px;
     padding-right: 0px;
     padding-left: 5px;
 }
 
 #custom-caffeine {
-    color: @sky;
+    color: @blue;
     margin-left: 10px;
 }
 
@@ -107,7 +107,7 @@ tooltip {
 }
 
 #clock {
-    color: @peach;
+    color: @orange;
     margin-left: 5px;
 }
 
@@ -116,7 +116,7 @@ tooltip {
 }
 
 #pulseaudio {
-    color: @sky;
+    color: @blue;
 }
 
 #backlight {
@@ -133,16 +133,16 @@ tooltip {
 }
 
 #battery.normal.charging {
-    color: #ffb347;
+    color: @yellow;
 }
 
 
 #battery.warning.charging {
-    color: #ffb347;
+    color: @yellow;
 }
 
 #battery.critical.charging {
-    color: #ffb347;
+    color: @red;
 }
 
 #battery.critical {
@@ -150,7 +150,7 @@ tooltip {
 }
 
 #battery.warning {
-    color: @peach;
+    color: @yellow;
 }
 
 #custom-weather {

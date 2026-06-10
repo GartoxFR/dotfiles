@@ -1,6 +1,6 @@
 {
     "layer": "bottom",
-    "position": "bottom",
+    "position": "top",
     "mod": "dock",
     "exclusive": true,
     "passtrough": false,
@@ -9,7 +9,6 @@
     "modules-left": [
         //"custom/weather",
         "sway/workspaces",
-        "mpd", 
     ],
     "modules-center": [ "clock" ],
     "modules-right": [
@@ -20,8 +19,8 @@
         "memory",
         // "custom/language",
         "backlight",
-        "pulseaudio",
-        "pulseaudio#microphone",
+        "pulseaudio"
+        // "pulseaudio#microphone",
     ],
 
     "sway/workspaces": {
@@ -138,19 +137,5 @@
         "format-icons": ["", "", "", "", ""],
         "format-charging": "⚡{capacity}%",
         "max-length": 25
-    },
-    "mpd": {
-        "max-length": 70,
-        "format": "{title} ({elapsedTime:%M:%S}/{totalTime:%M:%S})  ",
-        "tooltip-format": "{artist} - {album} - {title}\nVolume: {volume}%",
-        "on-click": "mpc toggle --quiet",
-        "on-scroll-up": "mpc --quiet volume +5",
-        "on-scroll-down": "mpc --quiet volume -5 ",
-        "state-icons": {
-            "playing": "",
-            "paused": "",
-        },
-        "format-stopped": "",
-        "format-disconnected": "",
     },
 }
