@@ -2,7 +2,7 @@ configuration{
     modi: "drun";
     icon-theme: "Oranchelo";
     show-icons: true;
-    terminal: "alacritty";
+    terminal: "kitty";
     drun-display-format: "{icon} {name}";
     location: 0;
     disable-history: false;
@@ -22,7 +22,7 @@ configuration{
     grey: #6c7086;
 
     width: 600;
-    font: "JetBrainsMono Nerd Font 14";
+    font: "IosevkaTerm Nerd Font Mono 14";
 }
 
 element-text, element-icon , mode-switcher {

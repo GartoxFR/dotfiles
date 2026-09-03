@@ -1,4 +1,4 @@
-@import "everforest.css";
+@import "everforest-light.css";
 * {
     border: none;
     border-radius: 0;
@@ -10,12 +10,12 @@
 }
 
 window#waybar {
-    background: @bg_dim;
+    background: @transparent;
     color: @text;
 }
 
 tooltip {
-    background: @bg_dim;
+    background: @transparent;
     border-radius: 10px;
     border-width: 2px;
     border-style: solid;
@@ -32,7 +32,9 @@ tooltip {
 }
 
 #workspaces button.active {
-    color: @grey1;
+    color: @aqua;
+    border-radius: 13px;
+    background: @bg_green;
 }
 
 #workspaces button.focused {
@@ -48,6 +50,7 @@ tooltip {
 #workspaces button:hover {
     background: @bg1;
     color: @grey2;
+    border-radius: 13px;
 }
 
 #mpd,
@@ -65,9 +68,11 @@ tooltip {
 #workspaces,
 #tray,
 #backlight {
-    background: @bg_dim;
+    background: @bg0;
     padding: 0px 10px;
-    margin: 0px;
+    margin: 7px;
+    border-radius: 13px;
+    box-shadow: 1px 2px 1px #939F91;
 }
 
 #cpu {
